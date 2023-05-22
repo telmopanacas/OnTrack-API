@@ -25,7 +25,7 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 
 # Change Log
-Instruições para o formato d
+Instruições para o formato do Change Log
 
 `Added` for new features.
 
