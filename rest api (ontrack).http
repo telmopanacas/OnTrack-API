@@ -1,0 +1,22 @@
+###
+GET http://localhost:8080/api/v1/anoletivo
+
+
+###
+POST http://localhost:8080/api/v1/anoletivo
+Content-Type: application/json
+
+{
+  "ano": "2023/2023"
+}
+
+
+###
+POST http://localhost:8080/api/v1/professor
+Content-Type: application/json
+
+{
+  "nome": "Maria",
+  "email": "maria@email.com"
+}
+
