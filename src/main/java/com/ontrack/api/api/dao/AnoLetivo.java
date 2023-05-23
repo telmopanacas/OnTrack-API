@@ -6,14 +6,8 @@ import jakarta.persistence.*;
 @Table
 public class AnoLetivo {
     @Id
-    @SequenceGenerator(
-            name = "ano_letivo_sequence",
-            sequenceName = "ano_letivo_sequence",
-            allocationSize = 1 // increment by 1
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "ano_letivo_sequence"
+            strategy = GenerationType.IDENTITY
     )
     private Long id;
 

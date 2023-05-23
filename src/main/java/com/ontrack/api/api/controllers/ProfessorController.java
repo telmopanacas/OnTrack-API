@@ -1,6 +1,7 @@
 package com.ontrack.api.api.controllers;
 
 import com.ontrack.api.api.dao.Professor;
+import com.ontrack.api.api.dao.UnidadeCurricular;
 import com.ontrack.api.api.services.ProfessorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,18 +19,50 @@ public class ProfessorController {
         this.professorService = professorService;
     }
 
+    /*
+    Endpoint para obter todos os professores
+     */
     @GetMapping
     public List<Professor> getProfessores() {
         return professorService.getProfessores();
     }
 
+    /*
+    Endpoint para registrar um novo professor
+     */
     @PostMapping
     public void registerNewProfessor(@RequestBody Professor professor) {
         professorService.addNewProfessor(professor);
     }
-
+    /*
+    Endpoint para apagar um professor
+     */
     @DeleteMapping
     public void deleteProfessor(Long professorId) {
         professorService.deleteProfessor(professorId);
+    }
+
+    /*
+    Endpoint para obter um professor
+     */
+    @GetMapping(path = "/{professorId}")
+    public Professor getProfessor(@PathVariable Long professorId) {
+        return professorService.getProfessor(professorId);
+    }
+
+    /*
+    Endpoint para obter todas as unidades curriculares de um professor
+     */
+    @GetMapping(path = "/{professorId}/unidades-curriculares")
+    public List<UnidadeCurricular> getUnidadesCurriculares(@PathVariable Long professorId) {
+        return professorService.getUnidadesCurriculares(professorId);
+    }
+
+    /*
+    Endpoint para registar uma nova unidade curricular para um professor
+     */
+    @PostMapping(path = "/{professorId}/unidades-curriculares/new")
+    public void registerNewUnidadeCurricular(@PathVariable Long professorId, @RequestBody UnidadeCurricular unidadeCurricular) {
+        professorService.addNewUnidadeCurricular(professorId, unidadeCurricular);
     }
 }

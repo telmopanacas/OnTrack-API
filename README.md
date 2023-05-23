@@ -23,6 +23,25 @@ spring.datasource.username=12345
 
 Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) executar o script `db_creation.sql` que se encontra na pasta `db_scripts` para criar a base de dados e as tabelas necessárias.
 
+# To Do:
+
+- [ ] Implementar a entidade `Ano Letivo` (em progresso)
+
+
+- [x] ~~Implementar a entidade `Professor`~~
+
+
+- [ ] Implementar a entidade `Unidade Curricular` (em progresso)
+
+
+- [ ] Implementar a entidade `Aluno`
+
+
+- [ ] Implementar a entidade `Avaliacao`
+
+
+- [ ] Implementar a entidade `Curso`
+
 
 # Change Log
 Instruições para o formato do Change Log
@@ -37,7 +56,44 @@ Instruições para o formato do Change Log
 
 `Fixed`  for any bug fixes.
 
-## 2023-05-22 - Telmo
+## 2023-05-23
+
+###  Added
+- Foram criados os ficheiros dao, controller, service e repository para a entidade `Unidade Curricular`.
+
+
+- Endpoint `api/v1/unidade_curricular` para a entidade `Unidade Curricular` onde é possível obter, criar e remover os
+  mesmos.
+
+
+- Endpoint `api/v1/professor/{professor_id}` para a entidade `Professor` onde é possível obter o professor pretendido 
+através do seu id.
+
+
+- Criou-se a relação N:N entre a entidade `Professor` e a entidade `Unidade Curricular`.
+
+
+- Endpoint`api/v1/professor/{professor_id}/unidades-curriculares` para a entidade `Professor` onde é possível obter as
+unidades curriculares que o professor leciona.
+
+
+- Endpoint `api/v1/professor/{professor_id}/unidades-curriculares/new` para a entidade `Professor` onde é possível
+adicionar uma unidade curricular ao professor.
+
+
+### Changed
+- No ficheiro `db_creation.sql` foi apagado o código de criação das tabelas que ainda não têm os seus ficheiros dao, 
+controller, service e repository criados de modo a simplificar o código. 
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+
+
+## 2023-05-22
 
 ###  Added
 - Adicionei o ficheiro `db_creation.sql` que contém o script para criar a base de dados e as tabelas necessárias.

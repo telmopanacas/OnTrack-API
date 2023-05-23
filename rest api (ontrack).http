@@ -10,6 +10,9 @@ Content-Type: application/json
   "ano": "2023/2023"
 }
 
+###
+GET http://localhost:8080/api/v1/professor
+Content-Type: application/json
 
 ###
 POST http://localhost:8080/api/v1/professor
@@ -18,5 +21,58 @@ Content-Type: application/json
 {
   "nome": "Maria",
   "email": "maria@email.com"
+}
+
+###
+POST http://localhost:8080/api/v1/professor
+Content-Type: application/json
+
+{
+  "nome": "João",
+  "email": "joao@email.com",
+  "unidadesCurriculares": [
+    {
+      "nome": "Matemática 2",
+      "codigo": "MAT2"
+    }
+  ]
+
+}
+
+###
+GET http://localhost:8080/api/v1/unidade_curricular
+
+###
+POST http://localhost:8080/api/v1/unidade_curricular
+Content-Type: application/json
+
+{
+  "nome": "Matemática",
+  "codigo": "MAT",
+  "descricao": "Matemática",
+  "ano": 1,
+  "semestre": 1
+}
+
+
+###
+GET http://localhost:8080/api/v1/professor/1
+
+###
+GET http://localhost:8080/api/v1/professor/3
+
+###
+GET http://localhost:8080/api/v1/professor/1/unidades-curriculares
+
+###
+GET http://localhost:8080/api/v1/professor/3/unidades-curriculares
+
+###
+POST http://localhost:8080/api/v1/professor/1/unidades-curriculares/new
+Content-Type: application/json
+
+{
+  "nome": "Matemática",
+  "codigo": "MAT"
 }
 
