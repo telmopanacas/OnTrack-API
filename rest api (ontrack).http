@@ -1,21 +1,12 @@
+#Obter todos os professores
 ###
-GET http://localhost:8080/api/v1/anoletivo
-
-
-###
-POST http://localhost:8080/api/v1/anoletivo
+GET http://localhost:8080/api/v1/professor/list
 Content-Type: application/json
 
-{
-  "ano": "2023/2023"
-}
 
+#Criar um professor Maria
 ###
-GET http://localhost:8080/api/v1/professor
-Content-Type: application/json
-
-###
-POST http://localhost:8080/api/v1/professor
+POST http://localhost:8080/api/v1/professor/new
 Content-Type: application/json
 
 {
@@ -23,56 +14,39 @@ Content-Type: application/json
   "email": "maria@email.com"
 }
 
+
 ###
-POST http://localhost:8080/api/v1/professor
+#Obter o professor com id 1 (Maria)
+GET http://localhost:8080/api/v1/professor/1
+
+
+#Obter as unidades curriculares do professor com id 1 (Maria)
+###
+GET http://localhost:8080/api/v1/professor/1/unidades-curriculares/list
+
+
+#Criar uma unidade curricular Matemática
+###
+POST http://localhost:8080/api/v1/unidade_curricular/new
 Content-Type: application/json
 
 {
-  "nome": "João",
-  "email": "joao@email.com",
-  "unidadesCurriculares": [
-    {
-      "nome": "Matemática 2",
-      "codigo": "MAT2"
-    }
-  ]
-
-}
-
-###
-GET http://localhost:8080/api/v1/unidade_curricular
-
-###
-POST http://localhost:8080/api/v1/unidade_curricular
-Content-Type: application/json
-
-{
-  "nome": "Matemática",
-  "codigo": "MAT",
-  "descricao": "Matemática",
+  "nome": "Matemática 2",
+  "codigo": "MAT2",
+  "descricao": "Matemática 2",
   "ano": 1,
   "semestre": 1
 }
 
 
 ###
-GET http://localhost:8080/api/v1/professor/1
+#Adicionar a unidade curricular com id 1 (Matemática) ao professor com id 1 (Maria)
+POST http://localhost:8080/api/v1/professor/1/unidades-curriculares/add/1
+
 
 ###
-GET http://localhost:8080/api/v1/professor/3
+#Obter todas as unidades curriculares
+GET http://localhost:8080/api/v1/unidade_curricular/list
 
-###
-GET http://localhost:8080/api/v1/professor/1/unidades-curriculares
 
-###
-GET http://localhost:8080/api/v1/professor/3/unidades-curriculares
-
-###
-POST http://localhost:8080/api/v1/professor/1/unidades-curriculares/new
-Content-Type: application/json
-
-{
-  "nome": "Matemática",
-  "codigo": "MAT"
-}
 

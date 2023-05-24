@@ -3,6 +3,7 @@ package com.ontrack.api.api.dao;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,7 +34,7 @@ public class UnidadeCurricular {
      */
     @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
     @JsonBackReference
-    private List<Professor> professores;
+    private List<Professor> professores = new ArrayList<>();
 
     public UnidadeCurricular() {
     }
@@ -132,5 +133,18 @@ public class UnidadeCurricular {
                 ", semestre=" + semestre +
                 ", professores=" + professores +
                 '}';
+    }
+
+
+    public boolean compareTo(UnidadeCurricular uc) {
+    	if(this.id == uc.getId()
+                && this.nome.equals(uc.getNome())
+                && this.codigo.equals(uc.getCodigo())
+                && this.descricao.equals(uc.getDescricao())
+                && this.ano == uc.getAno()
+                && this.semestre == uc.getSemestre()) {
+    		return true;
+    	}
+    	return false;
     }
 }

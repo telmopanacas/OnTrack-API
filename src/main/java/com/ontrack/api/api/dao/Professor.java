@@ -3,6 +3,7 @@ package com.ontrack.api.api.dao;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -24,7 +25,7 @@ public class Professor {
             inverseJoinColumns = @JoinColumn(name = "unidade_curricular_id", referencedColumnName = "id")
     )
     @JsonBackReference //Serve para dar bing do JSON ao objeto, para evitar recursividade
-    private List<UnidadeCurricular> unidadesCurriculares;
+    private List<UnidadeCurricular> unidadesCurriculares = new ArrayList<>();
 
     public Professor() {
     }
