@@ -3,6 +3,7 @@ package com.ontrack.api.api.dao;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,6 +14,7 @@ public class Aluno {
             strategy = GenerationType.IDENTITY
     )
     private long id;
+
     private String nome;
 
     private String email;
@@ -24,16 +26,20 @@ public class Aluno {
             inverseJoinColumns = @JoinColumn(name = "unidade_curricular_id", referencedColumnName = "id")
     )
     @JsonBackReference
-    private List<UnidadeCurricular> unidadesCurriculares;
+    private List<UnidadeCurricular> unidadesCurriculares = new ArrayList<>();
 
-    public Aluno(){
+    public Aluno() {
     }
 
-    public Aluno(long id, String nome, String email, List<UnidadeCurricular> unidadesCurriculares) {
+    public Aluno(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
+    }
+
+    public Aluno(long id, String nome, String email) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.unidadesCurriculares = unidadesCurriculares;
     }
 
     public Aluno(String nome, String email, List<UnidadeCurricular> unidadesCurriculares) {
@@ -42,15 +48,10 @@ public class Aluno {
         this.unidadesCurriculares = unidadesCurriculares;
     }
 
-    public Aluno(String nome, String email) {
+    public Aluno(long id, String nome, String email, List<UnidadeCurricular> unidadesCurriculares) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
-    }
-    public List<UnidadeCurricular> getUnidadesCurriculares() {
-        return unidadesCurriculares;
-    }
-
-    public void setUnidadesCurriculares(List<UnidadeCurricular> unidadesCurriculares) {
         this.unidadesCurriculares = unidadesCurriculares;
     }
 
@@ -78,8 +79,12 @@ public class Aluno {
         this.email = email;
     }
 
-    public void addUnidadeCurricular(UnidadeCurricular unidadeCurricular) {
-        this.unidadesCurriculares.add(unidadeCurricular);
+    public List<UnidadeCurricular> getUnidadesCurriculares() {
+        return unidadesCurriculares;
+    }
+
+    public void setUnidadesCurriculares(List<UnidadeCurricular> unidadesCurriculares) {
+        this.unidadesCurriculares = unidadesCurriculares;
     }
 
     @Override

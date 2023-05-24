@@ -3,6 +3,7 @@ package com.ontrack.api.api.dao;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,11 +34,12 @@ public class UnidadeCurricular {
      */
     @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
     @JsonBackReference
-    private List<Professor> professores;
+    private List<Professor> professores = new ArrayList<>();
 
     @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
     @JsonBackReference
-    private List<Aluno> alunos;
+    private List<Aluno> alunos = new ArrayList<>();
+
     public UnidadeCurricular() {
     }
 
@@ -51,14 +53,14 @@ public class UnidadeCurricular {
         this.professores = professores;
         this.alunos = alunos;
     }
-    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores) {
+
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
         this.ano = ano;
         this.semestre = semestre;
-        this.professores = professores;
     }
 
     public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre) {
@@ -69,14 +71,17 @@ public class UnidadeCurricular {
         this.semestre = semestre;
     }
 
-    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores) {
+    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores, List<Aluno> alunos) {
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
         this.ano = ano;
         this.semestre = semestre;
         this.professores = professores;
+        this.alunos = alunos;
     }
+
+
 
     public long getId() {
         return id;
@@ -134,7 +139,7 @@ public class UnidadeCurricular {
         this.professores = professores;
     }
 
-    public List<Aluno> getAluno() {
+    public List<Aluno> getAlunos() {
         return alunos;
     }
 
@@ -155,4 +160,5 @@ public class UnidadeCurricular {
                 ", alunos=" + alunos +
                 '}';
     }
+
 }

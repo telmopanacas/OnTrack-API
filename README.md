@@ -34,7 +34,7 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 - [ ] Implementar a entidade `Unidade Curricular` (em progresso)
 
 
-- [x] Implementar a entidade `Aluno`
+- [ ] Implementar a entidade `Aluno` (em progresso)
 
 
 - [ ] Implementar a entidade `Avaliacao`
@@ -61,25 +61,49 @@ Instruições para o formato do Change Log
 ###  Added
 - Foram criados os ficheiros dao, controller, service e repository para a entidade `Aluno`.
 
-- Endpoints `api/v1/aluno` para a entidade `Aluno` onde é possível obter, criar e remover os mesmos.
 
-- Endpoint `api/v1/aluno/{aluno_id}` para a entidade `Aluno` onde é possível obter o aluno pretendido
-  através do seu id.
+- Endpoint `api/v1/aluno/list` para a entidade `Aluno` onde é possível obter todos os alunos.
 
-- Criou-se a relação N:N entre a entidade `Aluno` e a entidade `Unidade Curricular`.
 
-- Endpoint`api/v1/aluno/{aluno_id}/unidades-curriculares` para a entidade `Aluno` onde é possível obter as
-  unidades curriculares que o aluno leciona.
+- Endpoint `api/v1/aluno/{aluno_id}` para a entidade `Aluno` onde é possível obter o aluno pretendido através do seu id.
+
+
+- Endpoint `api/v1/aluno/new` para a entidade `Aluno` onde é possível criar um novo aluno.
+
+
+- Endpoint `api/v1/aluno/delete/{aluno_id}` para a entidade `Aluno` onde é possível remover o aluno pretendido através do
+seu id.
+
+
+- Endpoint `api/v1/aluno/{aluno_id}/unidades-curriculares/list` para a entidade `Aluno` onde é possível obter todas as
+unidades curriculares que o aluno está inscrito.
+
+
+- Endpoint `api/v1/aluno/{aluno_id}/unidades-curriculares/add/{unidadeCurricularId}` para a entidade `Aluno` onde é 
+possível adicionar uma unidade curricular ao aluno.
+
+
+- Endpoint `api/v1/unidade_curricular/{unidadeCurricularId}/alunos/list` para a entidade `Unidade Curricular` onde é
+possível obter todos os alunos inscritos na unidade curricular pretendida.
 
 
 ### Changed
+- Nomenclatura dos endpoints das entidades `Professor` e `Unidade Curricular` para serem mais intuitivos.
+
+
+- No ficheiro `db_creation.sql` foi adicionada a entidade Aluno.
+
+
+- No ficheiro `rest api(ontrack).htpp` foram adicionados os endpoints da entidade `Aluno` e alterados os endpoints da
+entidade `Unidade Curricular`.
 
 ### Deprecated
 
+
 ### Removed
 
-### Fixed
 
+### Fixed
 
 ## 2023-05-23
 

@@ -1,5 +1,7 @@
 package com.ontrack.api.api.controllers;
 
+import com.ontrack.api.api.dao.Aluno;
+import com.ontrack.api.api.dao.Professor;
 import com.ontrack.api.api.dao.UnidadeCurricular;
 import com.ontrack.api.api.services.UnidadeCurricularService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,18 +20,44 @@ public class UnidadeCurricularController {
         this.unidadeCurricularService = unidadeCurricularService;
     }
 
-    @GetMapping
+    /*
+    Endpoint para obter todas as unidades curriculares
+     */
+    @GetMapping(path = "/list")
     public List<UnidadeCurricular> getUnidadesCurriculares() {
         return unidadeCurricularService.getUnidadesCurriculares();
     }
 
-    @PostMapping
+    /*
+    Endpoint para registar uma nova unidade curricular
+    - Ainda permite unidades curriculares duplicadas
+     */
+    @PostMapping(path = "/new")
     public void registerNewUnidadeCurricular(@RequestBody UnidadeCurricular unidadeCurricular) {
         unidadeCurricularService.addNewUnidadeCurricular(unidadeCurricular);
     }
 
-    @DeleteMapping
-    public void deleteUnidadeCurricular(Long unidadeCurricularId) {
+    /*
+    Endpoint para apagar uma unidade curricular
+     */
+    @DeleteMapping(path = "/delete/{unidadeCurricularId}")
+    public void deleteUnidadeCurricular(@PathVariable Long unidadeCurricularId) {
         unidadeCurricularService.deleteUnidadeCurricular(unidadeCurricularId);
+    }
+
+    /*
+    Endpoint para obter a lista de professores de uma unidade curricular
+     */
+    @GetMapping(path = "/{unidadeCurricularId}/professores/list")
+    public List<Professor> getProfessores(@PathVariable Long unidadeCurricularId) {
+        return unidadeCurricularService.getProfessores(unidadeCurricularId);
+    }
+
+    /*
+    Endpoint para obter a lista de alunos de uma unidade curricular
+     */
+    @GetMapping(path = "/{unidadeCurricularId}/alunos/list")
+    public List<Aluno> getAlunos(@PathVariable Long unidadeCurricularId) {
+        return unidadeCurricularService.getAlunos(unidadeCurricularId);
     }
 }

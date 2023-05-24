@@ -1,6 +1,9 @@
 package com.ontrack.api.api.services;
 
+import com.ontrack.api.api.dao.Aluno;
+import com.ontrack.api.api.dao.Professor;
 import com.ontrack.api.api.dao.UnidadeCurricular;
+import com.ontrack.api.api.repositories.AlunoRepository;
 import com.ontrack.api.api.repositories.UnidadeCurricularRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,7 @@ import java.util.List;
 public class UnidadeCurricularService {
 
     private final UnidadeCurricularRepository unidadeCurricularRepository;
+
 
     @Autowired
     public UnidadeCurricularService(UnidadeCurricularRepository unidadeCurricularRepository) {
@@ -33,4 +37,20 @@ public class UnidadeCurricularService {
         unidadeCurricularRepository.deleteById(unidadeCurricularId);
     }
 
+    public List<Professor> getProfessores(Long unidadeCurricularId) {
+        UnidadeCurricular unidadeCurricular = unidadeCurricularRepository.findById(unidadeCurricularId).orElseThrow(null);
+        if(unidadeCurricular == null) {
+            throw new IllegalStateException("Unidade Curricular com id " + unidadeCurricularId + " não existe");
+        } else {
+            return unidadeCurricular.getProfessores();
+        }
+    }
+
+    public List<Aluno> getAlunos(Long unidadeCurricularId) {
+        UnidadeCurricular unidadeCurricular = unidadeCurricularRepository.findById(unidadeCurricularId).orElseThrow(null);
+        if(unidadeCurricular == null) {
+            throw new IllegalStateException("Unidade Curricular com id " + unidadeCurricularId + " não existe");
+        }
+        return unidadeCurricular.getAlunos();
+    }
 }

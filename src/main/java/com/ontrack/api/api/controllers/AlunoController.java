@@ -15,20 +15,22 @@ public class AlunoController {
     private final AlunoService alunoService;
 
     @Autowired
-    public AlunoController(AlunoService alunoService){this.alunoService = alunoService;}
+    public AlunoController(AlunoService alunoService) {
+        this.alunoService = alunoService;
+    }
 
     /*
     Endpoint para obter todos os alunos
      */
-    @GetMapping
-    public List<Aluno> getAluno(){
+    @GetMapping(path = "/list")
+    public List<Aluno> getAlunos() {
         return alunoService.getAlunos();
     }
 
     /*
-    Endpoint para registrar um novo aluno
+    Endpoint para registar um novo aluno
      */
-    @PostMapping
+    @PostMapping(path = "/new")
     public void registerNewAluno(@RequestBody Aluno aluno) {
         alunoService.addNewAluno(aluno);
     }
@@ -36,8 +38,8 @@ public class AlunoController {
     /*
     Endpoint para apagar um aluno
      */
-    @DeleteMapping
-    public void deleteAluno(Long alunoId) {
+    @DeleteMapping(path = "/delete/{alunoId}")
+    public void deleteAluno(@PathVariable Long alunoId) {
         alunoService.deleteAluno(alunoId);
     }
 
@@ -52,16 +54,17 @@ public class AlunoController {
     /*
     Endpoint para obter todas as unidades curriculares de um aluno
      */
-    @GetMapping(path = "/{alunoId}/unidades-curriculares")
+    @GetMapping(path = "/{alunoId}/unidades-curriculares/list")
     public List<UnidadeCurricular> getUnidadesCurriculares(@PathVariable Long alunoId) {
         return alunoService.getUnidadesCurriculares(alunoId);
     }
 
     /*
-    Endpoint para registar uma nova unidade curricular para um aluno
+    Endpoint para adicionar uma unidade curricular a um aluno
      */
-    @PostMapping(path = "/{alunoId}/unidades-curriculares/new")
-    public void registerNewUnidadeCurricular(@PathVariable Long alunoId, @RequestBody UnidadeCurricular unidadeCurricular) {
-        alunoService.addNewUnidadeCurricular(alunoId, unidadeCurricular);
+    @PostMapping(path = "/{alunoId}/unidades-curriculares/add/{unidadeCurricularId}")
+    public void addUnidadeCurricular(@PathVariable Long alunoId, @PathVariable Long unidadeCurricularId) {
+        alunoService.addUnidadeCurricular(alunoId, unidadeCurricularId);
     }
+
 }

@@ -22,23 +22,25 @@ public class ProfessorController {
     /*
     Endpoint para obter todos os professores
      */
-    @GetMapping
+    @GetMapping(path = "/list")
     public List<Professor> getProfessores() {
         return professorService.getProfessores();
     }
 
     /*
-    Endpoint para registrar um novo professor
+    Endpoint para registar um novo professor
+    - Ainda permite utilizadores duplicados
      */
-    @PostMapping
+    @PostMapping(path = "/new")
     public void registerNewProfessor(@RequestBody Professor professor) {
         professorService.addNewProfessor(professor);
     }
+
     /*
     Endpoint para apagar um professor
      */
-    @DeleteMapping
-    public void deleteProfessor(Long professorId) {
+    @DeleteMapping(path = "/delete/{professorId}")
+    public void deleteProfessor(@PathVariable Long professorId) {
         professorService.deleteProfessor(professorId);
     }
 
@@ -53,16 +55,16 @@ public class ProfessorController {
     /*
     Endpoint para obter todas as unidades curriculares de um professor
      */
-    @GetMapping(path = "/{professorId}/unidades-curriculares")
+    @GetMapping(path = "/{professorId}/unidades-curriculares/list")
     public List<UnidadeCurricular> getUnidadesCurriculares(@PathVariable Long professorId) {
         return professorService.getUnidadesCurriculares(professorId);
     }
 
     /*
-    Endpoint para registar uma nova unidade curricular para um professor
+    Endpoint para adicionar uma nova unidade curricular a um professor
      */
-    @PostMapping(path = "/{professorId}/unidades-curriculares/new")
-    public void registerNewUnidadeCurricular(@PathVariable Long professorId, @RequestBody UnidadeCurricular unidadeCurricular) {
-        professorService.addNewUnidadeCurricular(professorId, unidadeCurricular);
+    @PostMapping(path = "/{professorId}/unidades-curriculares/add/{unidadeCurricularId}")
+    public void addNewUnidadeCurricular(@PathVariable Long professorId, @PathVariable Long unidadeCurricularId) {
+        professorService.addNewUnidadeCurricular(professorId, unidadeCurricularId);
     }
 }
