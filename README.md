@@ -59,6 +59,18 @@ Instruições para o formato do Change Log
 ## 2023-05-24
 
 ###  Added
+- Foram criados os ficheiros dao, controller, service e repository para a entidade `Aluno`.
+
+- Endpoints `api/v1/aluno` para a entidade `Aluno` onde é possível obter, criar e remover os mesmos.
+
+- Endpoint `api/v1/aluno/{aluno_id}` para a entidade `Aluno` onde é possível obter o aluno pretendido
+  através do seu id.
+
+- Criou-se a relação N:N entre a entidade `Aluno` e a entidade `Unidade Curricular`.
+
+- Endpoint`api/v1/aluno/{aluno_id}/unidades-curriculares` para a entidade `Aluno` onde é possível obter as
+  unidades curriculares que o aluno leciona.
+
 
 ### Changed
 
