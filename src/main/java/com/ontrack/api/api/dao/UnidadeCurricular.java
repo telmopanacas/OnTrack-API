@@ -36,10 +36,14 @@ public class UnidadeCurricular {
     @JsonBackReference
     private List<Professor> professores = new ArrayList<>();
 
+    @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<Aluno> alunos = new ArrayList<>();
+
     public UnidadeCurricular() {
     }
 
-    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores) {
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores, List<Aluno> alunos) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
@@ -47,6 +51,16 @@ public class UnidadeCurricular {
         this.ano = ano;
         this.semestre = semestre;
         this.professores = professores;
+        this.alunos = alunos;
+    }
+
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre) {
+        this.id = id;
+        this.nome = nome;
+        this.codigo = codigo;
+        this.descricao = descricao;
+        this.ano = ano;
+        this.semestre = semestre;
     }
 
     public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre) {
@@ -57,14 +71,17 @@ public class UnidadeCurricular {
         this.semestre = semestre;
     }
 
-    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores) {
+    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores, List<Aluno> alunos) {
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
         this.ano = ano;
         this.semestre = semestre;
         this.professores = professores;
+        this.alunos = alunos;
     }
+
+
 
     public long getId() {
         return id;
@@ -122,6 +139,14 @@ public class UnidadeCurricular {
         this.professores = professores;
     }
 
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
     @Override
     public String toString() {
         return "UnidadeCurricular{" +
@@ -132,19 +157,8 @@ public class UnidadeCurricular {
                 ", ano=" + ano +
                 ", semestre=" + semestre +
                 ", professores=" + professores +
+                ", alunos=" + alunos +
                 '}';
     }
 
-
-    public boolean compareTo(UnidadeCurricular uc) {
-    	if(this.id == uc.getId()
-                && this.nome.equals(uc.getNome())
-                && this.codigo.equals(uc.getCodigo())
-                && this.descricao.equals(uc.getDescricao())
-                && this.ano == uc.getAno()
-                && this.semestre == uc.getSemestre()) {
-    		return true;
-    	}
-    	return false;
-    }
 }

@@ -1,5 +1,6 @@
 package com.ontrack.api.api.controllers;
 
+import com.ontrack.api.api.dao.Aluno;
 import com.ontrack.api.api.dao.Professor;
 import com.ontrack.api.api.dao.UnidadeCurricular;
 import com.ontrack.api.api.services.UnidadeCurricularService;
@@ -44,9 +45,19 @@ public class UnidadeCurricularController {
         unidadeCurricularService.deleteUnidadeCurricular(unidadeCurricularId);
     }
 
+    /*
+    Endpoint para obter a lista de professores de uma unidade curricular
+     */
     @GetMapping(path = "/{unidadeCurricularId}/professores/list")
     public List<Professor> getProfessores(@PathVariable Long unidadeCurricularId) {
         return unidadeCurricularService.getProfessores(unidadeCurricularId);
     }
 
+    /*
+    Endpoint para obter a lista de alunos de uma unidade curricular
+     */
+    @GetMapping(path = "/{unidadeCurricularId}/alunos/list")
+    public List<Aluno> getAlunos(@PathVariable Long unidadeCurricularId) {
+        return unidadeCurricularService.getAlunos(unidadeCurricularId);
+    }
 }

@@ -61,10 +61,10 @@ public class ProfessorController {
     }
 
     /*
-    Endpoint para registar uma nova unidade curricular para um professor
+    Endpoint para adicionar uma nova unidade curricular a um professor
      */
     @PostMapping(path = "/{professorId}/unidades-curriculares/add/{unidadeCurricularId}")
-    public void registerNewUnidadeCurricular(@PathVariable Long professorId, @PathVariable Long unidadeCurricularId) {
+    public void addNewUnidadeCurricular(@PathVariable Long professorId, @PathVariable Long unidadeCurricularId) {
         professorService.addNewUnidadeCurricular(professorId, unidadeCurricularId);
     }
 }

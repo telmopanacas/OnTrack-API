@@ -50,7 +50,6 @@ public class ProfessorService {
     Função para adicionar uma nova unidade curricular a um professor
     - É feita a verificação se o professor existe pelo id fornecido
     - É feita a verificação se a unidade curricular existe pelo id do objeto fornecido;
-    - É feita a comparação entre a unidade curricular fornecida e a unidade curricular na base de dados para ver se são iguais;
     - É feita a verificação se o professor já tem a unidade curricular fornecida;
     - Se tudo estiver ok, a unidade curricular é adicionada ao professor e o professor é guardado na base de dados
      */
@@ -68,7 +67,7 @@ public class ProfessorService {
         }
 
         if(!professor.getUnidadesCurriculares().contains(unidadeCurricular)){
-            professor.addUnidadeCurricular(unidadeCurricular);
+            professor.getUnidadesCurriculares().add(unidadeCurricular);
             professorRepository.save(professor);
         }
         else {

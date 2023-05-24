@@ -49,4 +49,40 @@ POST http://localhost:8080/api/v1/professor/1/unidades-curriculares/add/1
 GET http://localhost:8080/api/v1/unidade_curricular/list
 
 
+#Obter todos os alunos
+###
+GET http://localhost:8080/api/v1/aluno/list
+
+
+#Criar um aluno João
+###
+POST http://localhost:8080/api/v1/aluno/new
+Content-Type: application/json
+
+{
+  "nome": "João",
+  "email": "a22000000@email.com"
+}
+
+
+###
+#Obter o aluno com id 1 (João)
+GET http://localhost:8080/api/v1/aluno/1
+
+
+#Obter as unidades curriculares do aluno com id 1 (João)
+###
+GET http://localhost:8080/api/v1/aluno/1/unidades-curriculares/list
+
+
+#Adicionar a unidade curricular com id 1 (Matemática) ao aluno com id 1 (João)
+###
+POST http://localhost:8080/api/v1/aluno/2/unidades-curriculares/add/1
+
+
+#Obter todos os alunos da unidade curricular com id 1 (Matemática)
+###
+GET http://localhost:8080/api/v1/unidade_curricular/1/alunos/list
+
+
 
