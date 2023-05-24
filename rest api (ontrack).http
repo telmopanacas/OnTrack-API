@@ -77,7 +77,7 @@ GET http://localhost:8080/api/v1/aluno/1/unidades-curriculares/list
 
 #Adicionar a unidade curricular com id 1 (Matemática) ao aluno com id 1 (João)
 ###
-POST http://localhost:8080/api/v1/aluno/2/unidades-curriculares/add/1
+POST http://localhost:8080/api/v1/aluno/1/unidades-curriculares/add/1
 
 
 #Obter todos os alunos da unidade curricular com id 1 (Matemática)
