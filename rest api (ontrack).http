@@ -76,3 +76,31 @@ Content-Type: application/json
   "codigo": "MAT"
 }
 
+###
+POST http://localhost:8080/api/v1/aluno
+Content-Type: application/json
+
+{
+  "nome": "Alberto",
+  "email": "alberto@email.com"
+}
+
+###
+POST http://localhost:8080/api/v1/aluno
+Content-Type: application/json
+
+{
+  "nome": "Pipokinha",
+  "email": "pipokinha@email.com",
+  "unidadesCurriculares": [
+    {
+      "nome": "Matemática 1",
+      "codigo": "MAT1"
+    }
+  ]
+
+}
+
+###
+GET http://localhost:8080/api/v1/aluno
+

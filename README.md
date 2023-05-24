@@ -34,7 +34,7 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 - [ ] Implementar a entidade `Unidade Curricular` (em progresso)
 
 
-- [ ] Implementar a entidade `Aluno`
+- [x] Implementar a entidade `Aluno`
 
 
 - [ ] Implementar a entidade `Avaliacao`
@@ -55,6 +55,19 @@ Instruições para o formato do Change Log
 `Removed` for now removed features.
 
 `Fixed`  for any bug fixes.
+
+## 2023-05-24
+
+###  Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
 
 ## 2023-05-23
 

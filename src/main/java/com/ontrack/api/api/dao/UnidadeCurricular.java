@@ -35,9 +35,22 @@ public class UnidadeCurricular {
     @JsonBackReference
     private List<Professor> professores;
 
+    @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
+    @JsonBackReference
+    private List<Aluno> alunos;
     public UnidadeCurricular() {
     }
 
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores, List<Aluno> alunos) {
+        this.id = id;
+        this.nome = nome;
+        this.codigo = codigo;
+        this.descricao = descricao;
+        this.ano = ano;
+        this.semestre = semestre;
+        this.professores = professores;
+        this.alunos = alunos;
+    }
     public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores) {
         this.id = id;
         this.nome = nome;
@@ -121,6 +134,14 @@ public class UnidadeCurricular {
         this.professores = professores;
     }
 
+    public List<Aluno> getAluno() {
+        return alunos;
+    }
+
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
     @Override
     public String toString() {
         return "UnidadeCurricular{" +
@@ -131,6 +152,7 @@ public class UnidadeCurricular {
                 ", ano=" + ano +
                 ", semestre=" + semestre +
                 ", professores=" + professores +
+                ", alunos=" + alunos +
                 '}';
     }
 }
