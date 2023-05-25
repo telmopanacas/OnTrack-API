@@ -1,6 +1,7 @@
 package com.ontrack.api.api.dao;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -26,20 +27,17 @@ public class Aluno {
             inverseJoinColumns = @JoinColumn(name = "unidade_curricular_id", referencedColumnName = "id")
     )
     @JsonBackReference
+    @JsonIgnore
     private List<UnidadeCurricular> unidadesCurriculares = new ArrayList<>();
 
     public Aluno() {
     }
 
-    public Aluno(String nome, String email) {
-        this.nome = nome;
-        this.email = email;
-    }
-
-    public Aluno(long id, String nome, String email) {
+    public Aluno(long id, String nome, String email, List<UnidadeCurricular> unidadesCurriculares) {
         this.id = id;
         this.nome = nome;
         this.email = email;
+        this.unidadesCurriculares = unidadesCurriculares;
     }
 
     public Aluno(String nome, String email, List<UnidadeCurricular> unidadesCurriculares) {
@@ -48,11 +46,9 @@ public class Aluno {
         this.unidadesCurriculares = unidadesCurriculares;
     }
 
-    public Aluno(long id, String nome, String email, List<UnidadeCurricular> unidadesCurriculares) {
-        this.id = id;
+    public Aluno(String nome, String email) {
         this.nome = nome;
         this.email = email;
-        this.unidadesCurriculares = unidadesCurriculares;
     }
 
     public long getId() {

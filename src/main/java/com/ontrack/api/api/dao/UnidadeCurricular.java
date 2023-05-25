@@ -1,6 +1,8 @@
 package com.ontrack.api.api.dao;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -9,11 +11,6 @@ import java.util.List;
 @Entity
 @Table
 public class UnidadeCurricular {
-    /*
-    TODO:
-     - Falta fazer a relação entre a Unidade Curricular e o Ano Letivo.
-     - Adicionar os atributos que faltam.
-     */
 
     @Id
     @GeneratedValue(
@@ -32,12 +29,14 @@ public class UnidadeCurricular {
     Para relações ManyToMany, este video pode ser útil:
     https://youtu.be/jCYonZey5dY?t=264
      */
-    @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
     @JsonBackReference
+    @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Professor> professores = new ArrayList<>();
 
     @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
     @JsonBackReference
+    @JsonIgnore
     private List<Aluno> alunos = new ArrayList<>();
 
     public UnidadeCurricular() {
@@ -54,15 +53,6 @@ public class UnidadeCurricular {
         this.alunos = alunos;
     }
 
-    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre) {
-        this.id = id;
-        this.nome = nome;
-        this.codigo = codigo;
-        this.descricao = descricao;
-        this.ano = ano;
-        this.semestre = semestre;
-    }
-
     public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre) {
         this.nome = nome;
         this.codigo = codigo;
@@ -70,18 +60,6 @@ public class UnidadeCurricular {
         this.ano = ano;
         this.semestre = semestre;
     }
-
-    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores, List<Aluno> alunos) {
-        this.nome = nome;
-        this.codigo = codigo;
-        this.descricao = descricao;
-        this.ano = ano;
-        this.semestre = semestre;
-        this.professores = professores;
-        this.alunos = alunos;
-    }
-
-
 
     public long getId() {
         return id;
@@ -160,5 +138,4 @@ public class UnidadeCurricular {
                 ", alunos=" + alunos +
                 '}';
     }
-
 }

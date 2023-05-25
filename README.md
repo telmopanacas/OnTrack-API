@@ -97,6 +97,10 @@ possível obter todos os alunos inscritos na unidade curricular pretendida.
 - No ficheiro `rest api(ontrack).htpp` foram adicionados os endpoints da entidade `Aluno` e alterados os endpoints da
 entidade `Unidade Curricular`.
 
+
+- Foram adicionadas as linhas `server.servlet.encoding.charset=UTF-8` `server.servlet.encoding.force=true` ao ficheiro
+`application.properties`.
+
 ### Deprecated
 
 
@@ -104,6 +108,9 @@ entidade `Unidade Curricular`.
 
 
 ### Fixed
+- Resolvido o erro `"error": "Unsupported Media Type",
+  "message": "Content-Type 'application/json;charset=UTF-8' is not supported.",` nos pedidos POST ao adicionar
+`@JsonIgnore` nas classes que têm relações com outras classes.
 
 ## 2023-05-23
 
