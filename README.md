@@ -25,7 +25,7 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 # To Do:
 
-- [ ] Implementar a entidade `Ano Letivo` (em progresso)
+- [x] ~~Implementar a entidade `Ano Letivo` (em progresso)~~
 
 
 - [x] ~~Implementar a entidade `Professor`~~
@@ -59,24 +59,47 @@ Instruições para o formato do Change Log
 ## 2023-05-25
 
 ###  Added
-- Foram criados os ficheiros dao, controller, service, repository para a entidade `EventodeAvaliacao`.
+- Foram criados os ficheiros dao, controller, service, repository para a entidade `Avaliacao`.
 
 
-- Endpoint `api/v1/evento_de_avaliacao/list` para a entidade `EventoDeAvaliacao` onde é possível obter todos os eventos.
+- Endpoint `api/v1/avaliacao/list` para a entidade `Avaliacao` onde é possível obter todos os eventos.
 
 
-- Endpoint `api/v1/evento_de_avaliacao/{evento_id}` para a entidade `EventoDeAvaliacao` onde é possível obter o evento pretendido através do seu id.
+- Endpoint `api/v1/avaliacao/{evento_id}` para a entidade `Avaliacao` onde é possível obter o evento pretendido através do seu id.
 
 
-- Endpoint `api/v1/evento_de_avaliacao/new` para a entidade `EventoDeAvaliacao` onde é possível criar um novo eventos.
+- Endpoint `api/v1/avaliacao/new` para a entidade `Avaliacao` onde é possível criar um novo eventos.
 
 
-- Endpoint `api/v1/evento_de_avaliacao/delete/{evento_id}` para a entidade `EventoDeAvaliacao` onde é possível remover o eventos pretendido através do
+- Endpoint `api/v1/avaliacao/delete/{evento_id}` para a entidade `Avaliacao` onde é possível remover o eventos pretendido através do
   seu id.
 
+
+- Endpoint `api/v1/unidade_curricular/{unidadeCurricularId}/avaliacoes/add/{avaliacaoId}` para a entidade `Unidade Curricular` onde é
+possível adicionar uma avaliação à unidade curricular.
+
+  
+- Endpoint `api/v1/unidade_curricular/{unidadeCurricularId}/avaliacoes/list` para a entidade `Unidade Curricular` onde é 
+possível obter todas as avaliações da unidade curricular pretendida.
+
+
+- Criada a relação 1:N entre a entidade `Ano Letivo` e a entidade `Unidade Curricular`.
+
+
+- Endpoint `api/v1/ano_letivo/{ano_letivo_id}/unidades-curriculares/list` para a entidade `Ano Letivo` onde é possível 
+obter asunidades curriculares que pertencem ao ano letivo pretendido.
+
+  
   
 ### Changed
-- No ficheiro `db_creation.sql` foi adicionada a entidade EventoDeAvaliacao.
+- No ficheiro `db_creation.sql` foi adicionada a entidade Avaliacao.
+
+
+- Nomeclatura dos endpoints da entidade `Ano Letivo` para serem mais intuitivos.
+
+
+- No ficheiro `rest api(ontrack).htpp` foram adicionados os endpoints de pedidos da entidade `Ano Letivo`.
+
 
 ### Deprecated
 

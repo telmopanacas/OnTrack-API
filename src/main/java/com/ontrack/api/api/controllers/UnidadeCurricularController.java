@@ -1,6 +1,7 @@
 package com.ontrack.api.api.controllers;
 
 import com.ontrack.api.api.dao.Aluno;
+import com.ontrack.api.api.dao.Avaliacao;
 import com.ontrack.api.api.dao.Professor;
 import com.ontrack.api.api.dao.UnidadeCurricular;
 import com.ontrack.api.api.services.UnidadeCurricularService;
@@ -46,6 +47,14 @@ public class UnidadeCurricularController {
     }
 
     /*
+    Endpoint para obter uma unidade curricular específica
+     */
+    @GetMapping(path = "/{unidadeCurricularId}")
+    public UnidadeCurricular getUnidadeCurricular(@PathVariable Long unidadeCurricularId) {
+        return unidadeCurricularService.getUnidadeCurricular(unidadeCurricularId);
+    }
+
+    /*
     Endpoint para obter a lista de professores de uma unidade curricular
      */
     @GetMapping(path = "/{unidadeCurricularId}/professores/list")
@@ -61,9 +70,22 @@ public class UnidadeCurricularController {
         return unidadeCurricularService.getAlunos(unidadeCurricularId);
     }
 
-    @PostMapping(path = "/{unidadeCurricularId}/avaliacao/add/{avaliacaoId}")
-    public void addUnidadeCurricular(@PathVariable Long unidadeCurricularId, @PathVariable Long avaliacaoId ) {
-        unidadeCurricularService.addUnidadeCurricular(unidadeCurricularId, avaliacaoId);
+    /*
+    Endpoint para adicionar uma avaliação a uma unidade curricular
+     */
+    @PostMapping(path = "/{unidadeCurricularId}/avaliacoes/add/{avaliacaoId}")
+    public void addUnidadeCurricular(@PathVariable Long unidadeCurricularId, @PathVariable Long avaliacaoId) {
+        unidadeCurricularService.addAvaliacao(unidadeCurricularId, avaliacaoId);
     }
+
+
+    /*
+    Endpoint para obter a lista de avaliações de uma unidade curricular
+     */
+    @GetMapping(path = "/{unidadeCurricularId}/avaliacoes/list")
+    public List<Avaliacao> getAvaliacoes(@PathVariable Long unidadeCurricularId) {
+        return unidadeCurricularService.getAvaliacoes(unidadeCurricularId);
+    }
+
 
 }

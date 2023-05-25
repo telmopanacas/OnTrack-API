@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "api/v1/evento_de_avaliacao")
+@RequestMapping(path = "api/v1/avaliacao")
 public class AvaliacaoController {
 
     private final AvaliacaoService avaliacaoService;
@@ -19,7 +19,7 @@ public class AvaliacaoController {
     }
 
     /*
-    Endpoint para obter todos os eventos de avaliação
+    Endpoint para obter todas as avaliações
      */
     @GetMapping(path = "/list")
     public List<Avaliacao> getEventos(){
@@ -27,7 +27,7 @@ public class AvaliacaoController {
     }
 
     /*
-    Endpoint para registar um novo evento de avaliação
+    Endpoint para registar uma nova avaliação
      */
     @PostMapping(path = "/new")
     public void registerNewEvento(@RequestBody Avaliacao avaliacao){
@@ -35,7 +35,7 @@ public class AvaliacaoController {
     }
 
     /*
-    Endpoint para apagar um evento
+    Endpoint para apagar uma avaliação
      */
     @DeleteMapping(path = "/delete/{evento_id}")
     public void deleteEvento(@PathVariable Long evento_id){
@@ -43,7 +43,7 @@ public class AvaliacaoController {
     }
 
     /*
-    Endpoint para obter um aluno especifico
+    Endpoint para obter uma avaliação em específico
      */
     @GetMapping(path = "/{evento_id}")
     public Avaliacao getEvento(@PathVariable Long evento_id){

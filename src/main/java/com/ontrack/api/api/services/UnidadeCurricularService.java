@@ -40,6 +40,15 @@ public class UnidadeCurricularService {
         unidadeCurricularRepository.deleteById(unidadeCurricularId);
     }
 
+
+    public UnidadeCurricular getUnidadeCurricular(Long unidadeCurricularId) {
+        UnidadeCurricular unidadeCurricular = unidadeCurricularRepository.findById(unidadeCurricularId).orElseThrow(null);
+        if(unidadeCurricular == null) {
+            throw new IllegalStateException("Unidade Curricular com id " + unidadeCurricularId + " não existe");
+        }
+        return unidadeCurricular;
+    }
+
     public List<Professor> getProfessores(Long unidadeCurricularId) {
         UnidadeCurricular unidadeCurricular = unidadeCurricularRepository.findById(unidadeCurricularId).orElseThrow(null);
         if(unidadeCurricular == null) {
@@ -57,10 +66,18 @@ public class UnidadeCurricularService {
         return unidadeCurricular.getAlunos();
     }
 
-    public void addUnidadeCurricular(Long unidadeCurricularId, Long avaliacaoId) {
+
+    /*
+    Função para adicionar uma avaliação a uma unidade curricular
+    - É feita a verificação se a unidade curricular existe
+    - É feita a verificação se a avaliação existe
+    - É feita a verificação se a unidade curricular já tem a avaliação
+    - Se tudo estiver bem, a avaliação é adicionada à unidade curricular
+     */
+    public void addAvaliacao(Long unidadeCurricularId, Long avaliacaoId) {
         UnidadeCurricular unidadeCurricular = unidadeCurricularRepository.findById(unidadeCurricularId).orElseThrow(null);
         if(unidadeCurricular == null) {
-            throw new IllegalStateException("Unidade curricular com id " + unidadeCurricularId + " não existe");
+            throw new IllegalStateException("Unidade Curricular com id " + unidadeCurricularId + " não existe");
         }
 
         Avaliacao avaliacao = avaliacaoRepository.findById(avaliacaoId).orElseThrow(null);
@@ -73,7 +90,20 @@ public class UnidadeCurricularService {
             unidadeCurricularRepository.save(unidadeCurricular);
         }
         else {
-            throw new IllegalStateException("Unidade curricular com id " + unidadeCurricular + " já tem a avaliacao com id " + avaliacaoId);
+            throw new IllegalStateException("Unidade Curricular com id " + unidadeCurricular + " já tem a avaliação com id " + avaliacaoId);
         }
+    }
+
+    /*
+    Função para obter as avaliações de uma unidade curricular
+    - É feita a verificação se a unidade curricular existe com o id fornecido
+    - Se tudo estiver bem, é retornado a lista de avaliações da unidade curricular
+     */
+    public List<Avaliacao> getAvaliacoes(Long unidadeCurricularId) {
+        UnidadeCurricular unidadeCurricular = unidadeCurricularRepository.findById(unidadeCurricularId).orElseThrow(null);
+        if(unidadeCurricular == null) {
+            throw new IllegalStateException("Unidade Curricular com id " + unidadeCurricularId + " não existe");
+        }
+        return unidadeCurricular.getAvaliacoes();
     }
 }

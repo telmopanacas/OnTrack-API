@@ -20,7 +20,7 @@ public class Professor {
 
     private String email;
 
-    @JsonBackReference
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "professor_unidade_curricular",

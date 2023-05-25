@@ -26,7 +26,6 @@ public class Aluno {
             joinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "unidade_curricular_id", referencedColumnName = "id")
     )
-    @JsonBackReference
     @JsonIgnore
     private List<UnidadeCurricular> unidadesCurriculares = new ArrayList<>();
 

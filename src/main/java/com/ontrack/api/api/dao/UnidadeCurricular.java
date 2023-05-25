@@ -24,18 +24,19 @@ public class UnidadeCurricular {
 
     private int semestre;
 
+    @ManyToOne
+    @JoinColumn(name = "ano_letivo_id")
+    private AnoLetivo anoLetivo;
+
     /*
     Para relações ManyToMany, este video pode ser útil:
     https://youtu.be/jCYonZey5dY?t=264
      */
-    @JsonBackReference
+
     @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
-    @JsonIgnore
     private List<Professor> professores = new ArrayList<>();
 
     @ManyToMany(mappedBy = "unidadesCurriculares", fetch = FetchType.LAZY)
-    @JsonBackReference
-    @JsonIgnore
     private List<Aluno> alunos = new ArrayList<>();
 
     @JsonIgnore
@@ -47,25 +48,26 @@ public class UnidadeCurricular {
     public UnidadeCurricular() {
     }
 
-    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes) {
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, AnoLetivo anoLetivo, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
         this.ano = ano;
         this.semestre = semestre;
+        this.anoLetivo = anoLetivo;
         this.professores = professores;
         this.alunos = alunos;
         this.avaliacoes = avaliacoes;
     }
 
-
-    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre) {
+    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, AnoLetivo anoLetivo) {
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
         this.ano = ano;
         this.semestre = semestre;
+        this.anoLetivo = anoLetivo;
     }
 
     public long getId() {
@@ -116,6 +118,14 @@ public class UnidadeCurricular {
         this.semestre = semestre;
     }
 
+    public AnoLetivo getAnoLetivo() {
+        return anoLetivo;
+    }
+
+    public void setAnoLetivo(AnoLetivo anoLetivo) {
+        this.anoLetivo = anoLetivo;
+    }
+
     public List<Professor> getProfessores() {
         return professores;
     }
@@ -149,6 +159,7 @@ public class UnidadeCurricular {
                 ", descricao='" + descricao + '\'' +
                 ", ano=" + ano +
                 ", semestre=" + semestre +
+                ", anoLetivo=" + anoLetivo +
                 ", professores=" + professores +
                 ", alunos=" + alunos +
                 ", avaliacoes=" + avaliacoes +
