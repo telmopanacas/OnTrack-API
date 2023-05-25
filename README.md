@@ -37,7 +37,7 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 - [ ] Implementar a entidade `Aluno` (em progresso)
 
 
-- [ ] Implementar a entidade `Avaliacao`
+- [ ] Implementar a entidade `Avaliacao` (em progresso)
 
 
 - [ ] Implementar a entidade `Curso`
@@ -55,6 +55,37 @@ Instruições para o formato do Change Log
 `Removed` for now removed features.
 
 `Fixed`  for any bug fixes.
+
+## 2023-05-25
+
+###  Added
+- Foram criados os ficheiros dao, controller, service, repository para a entidade `EventodeAvaliacao`.
+
+
+- Endpoint `api/v1/evento_de_avaliacao/list` para a entidade `EventoDeAvaliacao` onde é possível obter todos os eventos.
+
+
+- Endpoint `api/v1/evento_de_avaliacao/{evento_id}` para a entidade `EventoDeAvaliacao` onde é possível obter o evento pretendido através do seu id.
+
+
+- Endpoint `api/v1/evento_de_avaliacao/new` para a entidade `EventoDeAvaliacao` onde é possível criar um novo eventos.
+
+
+- Endpoint `api/v1/evento_de_avaliacao/delete/{evento_id}` para a entidade `EventoDeAvaliacao` onde é possível remover o eventos pretendido através do
+  seu id.
+
+  
+### Changed
+- No ficheiro `db_creation.sql` foi adicionada a entidade EventoDeAvaliacao.
+
+### Deprecated
+
+
+### Removed
+
+
+### Fixed
+
 
 ## 2023-05-24
 
@@ -97,6 +128,10 @@ possível obter todos os alunos inscritos na unidade curricular pretendida.
 - No ficheiro `rest api(ontrack).htpp` foram adicionados os endpoints da entidade `Aluno` e alterados os endpoints da
 entidade `Unidade Curricular`.
 
+
+- Foram adicionadas as linhas `server.servlet.encoding.charset=UTF-8` `server.servlet.encoding.force=true` ao ficheiro
+`application.properties`.
+
 ### Deprecated
 
 
@@ -104,6 +139,9 @@ entidade `Unidade Curricular`.
 
 
 ### Fixed
+- Resolvido o erro `"error": "Unsupported Media Type",
+  "message": "Content-Type 'application/json;charset=UTF-8' is not supported.",` nos pedidos POST ao adicionar
+`@JsonIgnore` nas classes que têm relações com outras classes.
 
 ## 2023-05-23
 

@@ -1,6 +1,8 @@
 package com.ontrack.api.api.dao;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -18,13 +20,14 @@ public class Professor {
 
     private String email;
 
+    @JsonBackReference
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(
             name = "professor_unidade_curricular",
             joinColumns = @JoinColumn(name = "professor_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "unidade_curricular_id", referencedColumnName = "id")
     )
-    @JsonBackReference //Serve para dar bing do JSON ao objeto, para evitar recursividade
+    @JsonIgnore
     private List<UnidadeCurricular> unidadesCurriculares = new ArrayList<>();
 
     public Professor() {
@@ -37,23 +40,21 @@ public class Professor {
         this.unidadesCurriculares = unidadesCurriculares;
     }
 
+    public Professor(String nome, String email) {
+        this.nome = nome;
+        this.email = email;
+    }
+
     public Professor(String nome, String email, List<UnidadeCurricular> unidadesCurriculares) {
         this.nome = nome;
         this.email = email;
         this.unidadesCurriculares = unidadesCurriculares;
     }
 
-    public Professor(String nome, String email) {
+    public Professor(long id, String nome, String email) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
-    }
-
-    public List<UnidadeCurricular> getUnidadesCurriculares() {
-        return unidadesCurriculares;
-    }
-
-    public void setUnidadesCurriculares(List<UnidadeCurricular> unidadesCurriculares) {
-        this.unidadesCurriculares = unidadesCurriculares;
     }
 
     public long getId() {
@@ -80,6 +81,14 @@ public class Professor {
         this.email = email;
     }
 
+    public List<UnidadeCurricular> getUnidadesCurriculares() {
+        return unidadesCurriculares;
+    }
+
+    public void setUnidadesCurriculares(List<UnidadeCurricular> unidadesCurriculares) {
+        this.unidadesCurriculares = unidadesCurriculares;
+    }
+
     @Override
     public String toString() {
         return "Professor{" +
@@ -89,6 +98,4 @@ public class Professor {
                 ", unidadesCurriculares=" + unidadesCurriculares +
                 '}';
     }
-
-
 }

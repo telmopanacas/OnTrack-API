@@ -1,7 +1,6 @@
 #Obter todos os professores
 ###
 GET http://localhost:8080/api/v1/professor/list
-Content-Type: application/json
 
 
 #Criar um professor Maria
@@ -84,5 +83,17 @@ POST http://localhost:8080/api/v1/aluno/1/unidades-curriculares/add/1
 ###
 GET http://localhost:8080/api/v1/unidade_curricular/1/alunos/list
 
+#Obter todos os eventos de avaliação
+###
+GET http://localhost:8080/api/v1/evento_de_avaliacao/list
 
+#Criar evento de avaliacao
+###
+POST http://localhost:8080/api/v1/evento_de_avaliacao/new
+Content-Type: application/json
+
+{
+  "nome": "Frequência",
+  "data": "16/06/2000"
+}
 
