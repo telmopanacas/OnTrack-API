@@ -28,7 +28,7 @@ create table aluno
     primary key (id)
 );
 
-create table evento_de_avaliacao
+create table avaliacao
 (
     id   int         not null auto_increment,
     nome varchar(40) not null,

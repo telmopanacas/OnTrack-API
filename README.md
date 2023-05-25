@@ -37,7 +37,7 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 - [ ] Implementar a entidade `Aluno` (em progresso)
 
 
-- [ ] Implementar a entidade `Avaliacao` (em progresso)
+- [x] ~~Implementar a entidade `Avaliacao`~~
 
 
 - [ ] Implementar a entidade `Curso`

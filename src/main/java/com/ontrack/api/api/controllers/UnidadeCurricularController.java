@@ -60,4 +60,10 @@ public class UnidadeCurricularController {
     public List<Aluno> getAlunos(@PathVariable Long unidadeCurricularId) {
         return unidadeCurricularService.getAlunos(unidadeCurricularId);
     }
+
+    @PostMapping(path = "/{unidadeCurricularId}/avaliacao/add/{avaliacaoId}")
+    public void addUnidadeCurricular(@PathVariable Long unidadeCurricularId, @PathVariable Long avaliacaoId ) {
+        unidadeCurricularService.addUnidadeCurricular(unidadeCurricularId, avaliacaoId);
+    }
+
 }

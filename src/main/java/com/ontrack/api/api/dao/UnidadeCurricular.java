@@ -2,7 +2,6 @@ package com.ontrack.api.api.dao;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -39,10 +38,16 @@ public class UnidadeCurricular {
     @JsonIgnore
     private List<Aluno> alunos = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany
+    @JoinColumn(name = "unidade_curricular_id")
+    private List<Avaliacao> avaliacoes = new ArrayList<>();
+
+
     public UnidadeCurricular() {
     }
 
-    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores, List<Aluno> alunos) {
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
@@ -51,7 +56,9 @@ public class UnidadeCurricular {
         this.semestre = semestre;
         this.professores = professores;
         this.alunos = alunos;
+        this.avaliacoes = avaliacoes;
     }
+
 
     public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre) {
         this.nome = nome;
@@ -125,6 +132,14 @@ public class UnidadeCurricular {
         this.alunos = alunos;
     }
 
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
+
     @Override
     public String toString() {
         return "UnidadeCurricular{" +
@@ -136,6 +151,7 @@ public class UnidadeCurricular {
                 ", semestre=" + semestre +
                 ", professores=" + professores +
                 ", alunos=" + alunos +
+                ", avaliacoes=" + avaliacoes +
                 '}';
     }
 }

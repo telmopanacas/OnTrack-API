@@ -97,3 +97,6 @@ Content-Type: application/json
   "data": "16/06/2000"
 }
 
+###
+#Adicionar avaliacao à unidade Matematica2
+POST http://localhost:8080/api/v1/unidade_curricular/1/avaliacao/add/2
