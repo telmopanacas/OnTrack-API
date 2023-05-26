@@ -47,5 +47,13 @@ CREATE TABLE unidade_curricular
     PRIMARY KEY (id)
 );
 
+create table curso
+(
+	id int not null auto_increment,
+    nome varchar(50) not null,
+    codigo varchar(15) not null,
+    primary key(id)
+);
+
 
 

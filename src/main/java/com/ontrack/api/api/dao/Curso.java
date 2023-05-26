@@ -1,6 +1,5 @@
 package com.ontrack.api.api.dao;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -9,57 +8,54 @@ import java.util.List;
 
 @Entity
 @Table
-public class Aluno {
+public class Curso {
     @Id
     @GeneratedValue(
             strategy = GenerationType.IDENTITY
     )
-    private long id;
+    private Long id;
 
     private String nome;
 
-    private String email;
+    private String codigo;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "curso_id")
-    private Curso curso;
+    @JsonIgnore
+    private List<Aluno> alunos = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "aluno_unidade_curricular",
-            joinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "unidade_curricular_id", referencedColumnName = "id")
-    )
+    @OneToMany
+    @JoinColumn(name = "curso_id")
     @JsonIgnore
     private List<UnidadeCurricular> unidadesCurriculares = new ArrayList<>();
 
-    public Aluno() {
+    public Curso() {
     }
 
-    public Aluno(long id, String nome, String email, Curso curso, List<UnidadeCurricular> unidadesCurriculares) {
+    public Curso(Long id, String nome, String codigo, List<Aluno> alunos, List<UnidadeCurricular> unidadesCurriculares) {
         this.id = id;
         this.nome = nome;
-        this.email = email;
-        this.curso = curso;
+        this.codigo = codigo;
+        this.alunos = alunos;
         this.unidadesCurriculares = unidadesCurriculares;
     }
 
-    public Aluno(String nome, String email) {
+    public Curso(String nome, String codigo) {
         this.nome = nome;
-        this.email = email;
+        this.codigo = codigo;
     }
 
-    public Aluno(String nome, String email, Curso curso) {
+    public Curso(Long id, String nome, String codigo) {
+        this.id = id;
         this.nome = nome;
-        this.email = email;
-        this.curso = curso;
+        this.codigo = codigo;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -71,20 +67,20 @@ public class Aluno {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public Curso getCurso() {
-        return curso;
+    public List<Aluno> getAlunos() {
+        return alunos;
     }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
     }
 
     public List<UnidadeCurricular> getUnidadesCurriculares() {
@@ -97,11 +93,11 @@ public class Aluno {
 
     @Override
     public String toString() {
-        return "Aluno{" +
+        return "Curso{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", curso=" + curso +
+                ", codigo='" + codigo + '\'' +
+                ", alunos=" + alunos +
                 ", unidadesCurriculares=" + unidadesCurriculares +
                 '}';
     }

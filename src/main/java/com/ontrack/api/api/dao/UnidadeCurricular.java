@@ -25,6 +25,10 @@ public class UnidadeCurricular {
     private int semestre;
 
     @ManyToOne
+    @JoinColumn(name = "curso_id")
+    private Curso curso;
+
+    @ManyToOne
     @JoinColumn(name = "ano_letivo_id")
     private AnoLetivo anoLetivo;
 
@@ -48,25 +52,29 @@ public class UnidadeCurricular {
     public UnidadeCurricular() {
     }
 
-    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, AnoLetivo anoLetivo, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes) {
+
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, Curso curso, AnoLetivo anoLetivo, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
         this.ano = ano;
         this.semestre = semestre;
+        this.curso = curso;
         this.anoLetivo = anoLetivo;
         this.professores = professores;
         this.alunos = alunos;
         this.avaliacoes = avaliacoes;
     }
 
-    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, AnoLetivo anoLetivo) {
+
+    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, Curso curso, AnoLetivo anoLetivo) {
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
         this.ano = ano;
         this.semestre = semestre;
+        this.curso = curso;
         this.anoLetivo = anoLetivo;
     }
 
@@ -126,6 +134,14 @@ public class UnidadeCurricular {
         this.anoLetivo = anoLetivo;
     }
 
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
     public List<Professor> getProfessores() {
         return professores;
     }
@@ -159,6 +175,7 @@ public class UnidadeCurricular {
                 ", descricao='" + descricao + '\'' +
                 ", ano=" + ano +
                 ", semestre=" + semestre +
+                ", curso=" + curso +
                 ", anoLetivo=" + anoLetivo +
                 ", professores=" + professores +
                 ", alunos=" + alunos +

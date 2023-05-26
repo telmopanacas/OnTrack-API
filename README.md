@@ -25,22 +25,22 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 # To Do:
 
-- [x] ~~Implementar a entidade `Ano Letivo` (em progresso)~~
+- [x] ~~Implementar a entidade `Ano Letivo`~~
 
 
 - [x] ~~Implementar a entidade `Professor`~~
 
 
-- [ ] Implementar a entidade `Unidade Curricular` (em progresso)
+- [x] ~~Implementar a entidade `Unidade Curricular`~~
 
 
-- [ ] Implementar a entidade `Aluno` (em progresso)
+- [x] ~~Implementar a entidade `Aluno`~~
 
 
 - [x] ~~Implementar a entidade `Avaliacao`~~
 
 
-- [ ] Implementar a entidade `Curso`
+- [x] ~~Implementar a entidade `Curso`~~
 
 
 # Change Log
@@ -55,6 +55,44 @@ Instruições para o formato do Change Log
 `Removed` for now removed features.
 
 `Fixed`  for any bug fixes.
+
+## 2023-05-26
+
+###  Added
+- Foram criados os ficheiros dao, controller, service, repository para a entidade `Curso`.
+
+
+- Endpoint `api/v1/curso/list` para a entidade `Curso` onde é possível obter todos os cursos.
+
+
+- Endpoint `api/v1/curso/{curso_id}` para a entidade `Curso` onde é possível obter o curso pretendido através do seu id.
+
+
+- Endpoint `api/v1/curso/new` para a entidade `Curso` onde é possível criar um novo curso.
+
+
+- Endpoint `api/v1/curso/delete/{curso_id}` para a entidade `Curso` onde é possível remover o curso pretendido através do
+  seu id.
+
+
+- Endpoint `api/v1/curso/{curso_id}/unidades-curriculares/list` para a entidade `Curso` onde é possível obter todas as
+  unidades curriculares que pertencem ao curso pretendido.
+
+
+- Endpoint `api/v1/curso/{curso_id}/alunos/list` para a entidade `Curso` onde é possível obter todos os alunos que
+  pertencem ao curso pretendido.
+
+### Changed
+- No ficheiro `db_creation.sql` foi adicionada a entidade Curso.
+
+### Deprecated
+
+
+### Removed
+
+
+### Fixed
+
 
 ## 2023-05-25
 
