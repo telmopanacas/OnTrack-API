@@ -25,7 +25,9 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 # To Do:
 
-- [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Avaliacao`
+- [x] ~~Fazer o endpoint `PUT` para atualizar campos da entidade `Avaliacao`~~
+
+
 - [ ] Fazer o Dockerfile
 
 
@@ -53,6 +55,11 @@ email, para que seja possível fazer o login na aplicação.
 - Campos `tipoDeAvaliacao`, `metodoDeEntrega` e `descricao` à entidade `Avaliacao`.
 
 
+- Endpoint `api/v1/avaliacao/{avaliacao_id}` com método `PUT` para a entidade `Avaliacao` onde é possível atualizar 
+os campos `nome`,`tipoDeAvaliacao`, `metodoDeEntrega`, `data`, `descricao` e `unidadeCurricular` da avaliação pretendida 
+através do seu id.
+
+
 ### Changed
 - Alteração da nomenclatura de métodos e variáveis utilizados nos ficheiros `AvaliacaoService` e `AvaliacaoController` 
 para manter a consistência nos termos utilizados. 
@@ -61,6 +68,8 @@ para manter a consistência nos termos utilizados.
 - Alteração da lista To Do no ficheiro `README.md`.
 
 
+- Adicionado exemplo de um pedido `PUT` para o endpoint `api/v1/avaliacao/{avaliacao_id}` no ficheiro 
+`rest api(ontrack).http`.
 ### Deprecated
 
 

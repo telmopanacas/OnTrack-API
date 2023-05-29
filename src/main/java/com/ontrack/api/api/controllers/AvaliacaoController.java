@@ -50,4 +50,20 @@ public class AvaliacaoController {
         return avaliacaoService.getAvaliacao(avaliacao_id);
     }
 
+    /*
+    Endpoint para atualizar uma avaliação
+     */
+    @PutMapping(path = "{avaliacao_id}")
+    public void updateAvaliacao(
+            @PathVariable("avaliacao_id") Long avaliacao_id,
+            @RequestParam(required = false) String nome,
+            @RequestParam(required = false) String tipoDeAvaliacao,
+            @RequestParam(required = false) String metodoDeEntrega,
+            @RequestParam(required = false) String data,
+            @RequestParam(required = false) String descricao,
+            @RequestParam(required = false) Long unidadeCurricularId
+    ) {
+        avaliacaoService.updateAvaliacao(avaliacao_id, nome, tipoDeAvaliacao, metodoDeEntrega, data, descricao, unidadeCurricularId);
+    }
+
 }

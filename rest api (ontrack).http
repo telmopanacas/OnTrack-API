@@ -151,3 +151,33 @@ GET http://localhost:8080/api/v1/login?email=p1234@ulusofona.pt
 #Obter o ID do aluno com email a22000000@alunos.ulht.pt
 ###
 GET http://localhost:8080/api/v1/login?email=a22000000@alunos.ulht.pt
+
+
+#Criar unidade curricular Matemática 3
+###
+POST http://localhost:8080/api/v1/unidade_curricular/new
+Content-Type: application/json
+
+{
+  "nome": "Matemática 3",
+  "codigo": "MAT3",
+  "descricao": "Matemática 3",
+  "ano": 1,
+  "semestre": 1,
+  "curso": {
+    "id": 1
+  },
+  "anoLetivo": {
+    "id": 1
+  }
+}
+
+
+###
+#Mudar a unidade curricular da avaliacao com id 1 (Frequência 1) para Matemática 3
+PUT http://localhost:8080/api/v1/avaliacao/1?unidadeCurricularId=2
+
+
+###
+#Mudar o nome da avaliacao com id 1 (Frequência 1) para Avaliação 1
+PUT http://localhost:8080/api/v1/avaliacao/1?nome=Avaliação 1
