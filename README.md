@@ -25,22 +25,12 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 # To Do:
 
-- [x] ~~Implementar a entidade `Ano Letivo`~~
+- [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Aluno`
+- [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Unidade Curricular`
+- [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Avaliacao`
+- [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Professor`
+- [ ] Fazer o Dockerfile
 
-
-- [x] ~~Implementar a entidade `Professor`~~
-
-
-- [x] ~~Implementar a entidade `Unidade Curricular`~~
-
-
-- [x] ~~Implementar a entidade `Aluno`~~
-
-
-- [x] ~~Implementar a entidade `Avaliacao`~~
-
-
-- [x] ~~Implementar a entidade `Curso`~~
 
 
 # Change Log
@@ -55,6 +45,24 @@ Instruições para o formato do Change Log
 `Removed` for now removed features.
 
 `Fixed`  for any bug fixes.
+
+## 2023-05-29
+
+###  Added
+- Endpoint `api/v1/login` que temporariamente recebe como parâmetro o `email` do utilizadore devolve o `Id` associado a esse
+email, para que seja possível fazer o login na aplicação. 
+
+
+### Changed
+
+
+### Deprecated
+
+
+### Removed
+
+
+### Fixed
 
 ## 2023-05-26
 
