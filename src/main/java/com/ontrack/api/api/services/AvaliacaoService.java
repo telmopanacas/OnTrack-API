@@ -18,15 +18,15 @@ public class AvaliacaoService {
         this.avaliacaoRepository = avaliacaoRepository;
     }
 
-    public List<Avaliacao> getEventosDeAvaliacao(){
+    public List<Avaliacao> getAvaliacoes(){
         return avaliacaoRepository.findAll();
     }
 
-    public void addNewEvento(Avaliacao avaliacao){
+    public void addNewAvaliacao(Avaliacao avaliacao){
         avaliacaoRepository.save(avaliacao);
     }
 
-    public void deleteEvento(Long eventoId){
+    public void deleteAvaliacao(Long eventoId){
         boolean exists = avaliacaoRepository.existsById(eventoId);
         if (!exists){
             throw new IllegalStateException("Evento de avaliação "+ eventoId + " não existe");
@@ -35,7 +35,7 @@ public class AvaliacaoService {
     }
 
 
-    public Avaliacao getEventoDeAvaliacao(Long eventoId){
+    public Avaliacao getAvaliacao(Long eventoId){
         Avaliacao avaliacao = avaliacaoRepository.findById(eventoId).orElseThrow(null);
         if (avaliacao == null){
             throw new IllegalStateException("Evento de avaliação com id " + eventoId + " não existe");

@@ -22,32 +22,32 @@ public class AvaliacaoController {
     Endpoint para obter todas as avaliações
      */
     @GetMapping(path = "/list")
-    public List<Avaliacao> getEventos(){
-        return avaliacaoService.getEventosDeAvaliacao();
+    public List<Avaliacao> getAvaliacoes(){
+        return avaliacaoService.getAvaliacoes();
     }
 
     /*
     Endpoint para registar uma nova avaliação
      */
     @PostMapping(path = "/new")
-    public void registerNewEvento(@RequestBody Avaliacao avaliacao){
-        avaliacaoService.addNewEvento(avaliacao);
+    public void registerNewAvaliacao(@RequestBody Avaliacao avaliacao){
+        avaliacaoService.addNewAvaliacao(avaliacao);
     }
 
     /*
     Endpoint para apagar uma avaliação
      */
-    @DeleteMapping(path = "/delete/{evento_id}")
-    public void deleteEvento(@PathVariable Long evento_id){
-        avaliacaoService.deleteEvento(evento_id);
+    @DeleteMapping(path = "/delete/{avaliacao_id}")
+    public void deleteAvaliacao(@PathVariable Long avaliacao_id){
+        avaliacaoService.deleteAvaliacao(avaliacao_id);
     }
 
     /*
     Endpoint para obter uma avaliação em específico
      */
-    @GetMapping(path = "/{evento_id}")
-    public Avaliacao getEvento(@PathVariable Long evento_id){
-        return avaliacaoService.getEventoDeAvaliacao(evento_id);
+    @GetMapping(path = "/{avaliacao_id}")
+    public Avaliacao getAvaliacao(@PathVariable Long avaliacao_id){
+        return avaliacaoService.getAvaliacao(avaliacao_id);
     }
 
 }

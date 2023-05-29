@@ -13,7 +13,12 @@ public class Avaliacao {
 
     private String nome;
 
+    private String tipoDeAvaliacao;
+
+    private String metodoDeEntrega;
     private String data;
+
+    private String descricao;
 
     @ManyToOne
     @JoinColumn(name = "unidade_curricular_id")
@@ -23,22 +28,38 @@ public class Avaliacao {
 
     }
 
-    public Avaliacao(long id, String nome, String data, UnidadeCurricular unidadeCurricular) {
+    public Avaliacao(long id, String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, String descricao, UnidadeCurricular unidadeCurricular) {
         this.id = id;
         this.nome = nome;
+        this.tipoDeAvaliacao = tipoDeAvaliacao;
+        this.metodoDeEntrega = metodoDeEntrega;
         this.data = data;
+        this.descricao = descricao;
         this.unidadeCurricular = unidadeCurricular;
     }
 
-    public Avaliacao(String nome, String data, UnidadeCurricular unidadeCurricular) {
+    public Avaliacao(String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, String descricao, UnidadeCurricular unidadeCurricular) {
         this.nome = nome;
+        this.tipoDeAvaliacao = tipoDeAvaliacao;
+        this.metodoDeEntrega = metodoDeEntrega;
         this.data = data;
+        this.descricao = descricao;
         this.unidadeCurricular = unidadeCurricular;
     }
 
-    public Avaliacao(String nome, String data) {
+    public Avaliacao(String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data) {
         this.nome = nome;
+        this.tipoDeAvaliacao = tipoDeAvaliacao;
+        this.metodoDeEntrega = metodoDeEntrega;
         this.data = data;
+    }
+
+    public Avaliacao(String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, UnidadeCurricular unidadeCurricular) {
+        this.nome = nome;
+        this.tipoDeAvaliacao = tipoDeAvaliacao;
+        this.metodoDeEntrega = metodoDeEntrega;
+        this.data = data;
+        this.unidadeCurricular = unidadeCurricular;
     }
 
     public long getId() {
@@ -73,12 +94,39 @@ public class Avaliacao {
         this.unidadeCurricular = unidadeCurricular;
     }
 
+    public String getTipoDeAvaliacao() {
+        return tipoDeAvaliacao;
+    }
+
+    public void setTipoDeAvaliacao(String tipoDeAvaliacao) {
+        this.tipoDeAvaliacao = tipoDeAvaliacao;
+    }
+
+    public String getMetodoDeEntrega() {
+        return metodoDeEntrega;
+    }
+
+    public void setMetodoDeEntrega(String metodoDeEntrega) {
+        this.metodoDeEntrega = metodoDeEntrega;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
     @Override
     public String toString() {
         return "Avaliacao{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
+                ", tipoDeAvaliacao='" + tipoDeAvaliacao + '\'' +
+                ", metodoDeEntrega='" + metodoDeEntrega + '\'' +
                 ", data='" + data + '\'' +
+                ", descricao='" + descricao + '\'' +
                 ", unidadeCurricular=" + unidadeCurricular +
                 '}';
     }

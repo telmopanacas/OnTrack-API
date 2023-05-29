@@ -25,10 +25,7 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 # To Do:
 
-- [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Aluno`
-- [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Unidade Curricular`
 - [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Avaliacao`
-- [ ] Fazer o endpoint `PUT` para atualizar campos da entidade `Professor`
 - [ ] Fazer o Dockerfile
 
 
@@ -53,7 +50,15 @@ Instruições para o formato do Change Log
 email, para que seja possível fazer o login na aplicação. 
 
 
+- Campos `tipoDeAvaliacao`, `metodoDeEntrega` e `descricao` à entidade `Avaliacao`.
+
+
 ### Changed
+- Alteração da nomenclatura de métodos e variáveis utilizados nos ficheiros `AvaliacaoService` e `AvaliacaoController` 
+para manter a consistência nos termos utilizados. 
+
+
+- Alteração da lista To Do no ficheiro `README.md`.
 
 
 ### Deprecated
