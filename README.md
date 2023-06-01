@@ -25,7 +25,7 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 # To Do:
 
-- [ ] Fazer o Dockerfile
+- [x] ~~Fazer o Dockerfile~~
 
 
 - [ ] Fazer o docker-compose.yml
@@ -48,7 +48,7 @@ Instruições para o formato do Change Log
 ## 2023-06-01
 
 ###  Added
-
+- Criação do ficheiro `Dockerfile` para a criação de uma imagem docker da API.
 
 ### Changed
 - Alteração do endpoint `api/v1/aluno/new` para não permitir a criação de um aluno com um email que já exista na base de dados.
