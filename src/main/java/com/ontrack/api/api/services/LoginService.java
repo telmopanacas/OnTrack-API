@@ -7,6 +7,8 @@ import com.ontrack.api.api.repositories.ProfessorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class LoginService {
 
@@ -26,18 +28,18 @@ public class LoginService {
             throw new IllegalStateException("Email inválido");
         }
         if(dados[0].charAt(0) == 'a'){
-            Aluno aluno = alunoRepository.findByEmail(email);
-            if(aluno == null){
+            Optional<Aluno> aluno = alunoRepository.findAlunoByEmail(email);
+            if(aluno.isEmpty()){
                 throw new IllegalStateException("Aluno com email " + email + " não existe");
             }
-            return aluno.getId();
+            return aluno.get().getId();
         }
         else if(dados[0].charAt(0) == 'p'){
-            Professor professor = professorRepository.findByEmail(email);
-            if(professor == null){
+            Optional<Professor> professor = professorRepository.findProfessorByEmail(email);
+            if(professor.isEmpty()){
                 throw new IllegalStateException("Professor com email " + email + " não existe");
             }
-            return professor.getId();
+            return professor.get().getId();
         }
         else{
             throw new IllegalStateException("Email inválido");

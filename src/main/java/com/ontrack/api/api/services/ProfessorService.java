@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProfessorService {
@@ -26,6 +27,10 @@ public class ProfessorService {
     }
 
     public void addNewProfessor(Professor professor) {
+        Optional<Professor> professorOptional = professorRepository.findProfessorByEmail(professor.getEmail());
+        if (professorOptional.isPresent()) {
+            throw new IllegalStateException("Email usado já se encontra registado");
+        }
         professorRepository.save(professor);
     }
 

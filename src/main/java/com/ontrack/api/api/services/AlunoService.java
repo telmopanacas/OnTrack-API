@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AlunoService {
@@ -26,6 +27,10 @@ public class AlunoService {
     }
 
     public void addNewAluno(Aluno aluno) {
+        Optional<Aluno> alunoOptional = alunoRepository.findAlunoByEmail(aluno.getEmail());
+        if(alunoOptional.isPresent()) {
+            throw new IllegalStateException("Email usado já se encontra registado");
+        }
         alunoRepository.save(aluno);
     }
 

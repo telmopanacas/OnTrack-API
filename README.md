@@ -25,10 +25,10 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 # To Do:
 
-- [x] ~~Fazer o endpoint `PUT` para atualizar campos da entidade `Avaliacao`~~
-
-
 - [ ] Fazer o Dockerfile
+
+
+- [ ] Fazer o docker-compose.yml
 
 
 
@@ -44,6 +44,26 @@ Instruições para o formato do Change Log
 `Removed` for now removed features.
 
 `Fixed`  for any bug fixes.
+
+## 2023-06-01
+
+###  Added
+
+
+### Changed
+- Alteração do endpoint `api/v1/aluno/new` para não permitir a criação de um aluno com um email que já exista na base de dados.
+
+
+- Alteração do endpoint `api/v1/professor/new` para não permitir a criação de um professor com um email que já exista na base de dados.
+
+
+### Deprecated
+
+
+### Removed
+
+
+### Fixed
 
 ## 2023-05-29
 
