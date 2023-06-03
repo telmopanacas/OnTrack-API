@@ -32,17 +32,38 @@ Ter o docker instalado na máquina.
 
 ### Step 2
 
+Criar as pastas `Ontrack/database` no caminho `C:\` de modo a que fique do seguinte modo: `C:\OnTrack\database` 
+
+### Step 3
+
+No IntelliJ através da opção do Maven fazer o seguinte:
+- Ir a `api`;
+
+
+- Ir a `Lifecycle`;
+
+
+- Executar o comando `clean`;
+
+
+- Executar o comando `install`.
+
+***Se não estiver a utilizar o IntelliJ como IDE, installe o Maven e no terminal execute os comandos equivalentes ao descrito acima.***
+- https://maven.apache.org/download.cgi
+
+### Step 4
+
 #### Na primeira execução: 
 
 Na pasta raiz do projeto executar o seguinte comando:
 
-`docker-compose up --build`
+`docker-compose up --build` ou `docker-compose up -d --build` para correr em background.
 
 #### Nas restantes execuções:
 
 Na pasta raiz do projeto executar o seguinte comando:
 
-`docker-compose up`
+`docker-compose up` ou `docker-compose up -d` para correr em background.
 
 # To Do:
 
