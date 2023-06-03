@@ -2,7 +2,7 @@
 
 - Desenvolvida por: [Telmo Panaças](https://github.com/telmo-a22001972) e por [Rafael Paulo](https://github.com/rafaelpaulo22001810)
 
-## Alterações necessárias para o funcionamento da API
+## Alterações necessárias para o funcionamento da API (sem Docker)
 
 ### Step 1
 No ficheiro `application.properties` é necessário alterar as seguintes propriedades:
@@ -23,12 +23,33 @@ spring.datasource.username=12345
 
 Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) executar o script `db_creation.sql` que se encontra na pasta `db_scripts` para criar a base de dados e as tabelas necessárias.
 
+
+## Utilização da API com Docker
+
+### Step 1
+
+Ter o docker instalado na máquina.
+
+### Step 2
+
+#### Na primeira execução: 
+
+Na pasta raiz do projeto executar o seguinte comando:
+
+`docker-compose up --build`
+
+#### Nas restantes execuções:
+
+Na pasta raiz do projeto executar o seguinte comando:
+
+`docker-compose up`
+
 # To Do:
 
 - [x] ~~Fazer o Dockerfile~~
 
 
-- [ ] Fazer o docker-compose.yml
+- [x] ~~Fazer o docker-compose.yml~~
 
 
 

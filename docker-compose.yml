@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0-oracle
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_DATABASE: ontrack_db
+        MYSQL_USER: ontrack
+        MYSQL_PASSWORD: passwordontrack
+    volumes:
+      - C:\OnTrack\database\:/var/lib/mysql
+
+
+  ontrack-api:
+    image: ontrackspringapi
+    build:
+        context: .
+        dockerfile: Dockerfile
+    restart: always
+    environment:
+      DB_URL: jdbc:mysql://db:3306/ontrack_db?connectTimeout=0&socketTimeout=0&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+    ports:
+        - "8094:8080"
+
+    links:
+        - db
