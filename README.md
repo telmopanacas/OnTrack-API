@@ -2,6 +2,67 @@
 
 - Desenvolvida por: [Telmo Panaças](https://github.com/telmo-a22001972) e por [Rafael Paulo](https://github.com/rafaelpaulo22001810)
 
+## Endpoints:
+
+### Aluno
+
+- `GET` `api/v1/aluno/list` - Obter todos os alunos
+- `GET` `api/v1/aluno/{aluno_id}` - Obter aluno através do seu id
+- `POST` `api/v1/aluno/new` - Criar um novo aluno
+- `DELETE` `api/v1/aluno/delete/{aluno_id}` - Remover aluno através do seu id
+- `GET` `api/v1/aluno/{aluno_id}/unidades-curriculares/list` - Obter todas as unidades curriculares que pertencem ao aluno
+- `GET` `api/v1/aluno/{aluno_id}/avaliacoes/list` - Obter todas as avaliações que pertencem ao aluno
+- `POST` `api/v1/aluno/{alunoId}/unidades-curriculares/add/{unidadeCurricularId}` - Adicionar uma unidade curricular ao aluno
+
+### Professor
+
+- `GET` `api/v1/professor/list` - Obter todos os professores
+- `GET` `api/v1/professor/{professor_id}` - Obter professor através do seu id
+- `POST` `api/v1/professor/new` - Criar um novo professor
+- `DELETE` `api/v1/professor/delete/{professor_id}` - Remover professor através do seu id
+- `GET` `api/v1/professor/{professor_id}/unidades-curriculares/list` - Obter todas as unidades curriculares que pertencem ao professor
+- `POST` `api/v1/professor/{professorId}/unidades-curriculares/add/{unidadeCurricularId}` - Adicionar uma unidade curricular ao professor
+
+### Unidade Curricular
+
+- `GET` `api/v1/unidade-curricular/list` - Obter todas as unidades curriculares
+- `GET` `api/v1/unidade-curricular/{unidade_curricular_id}` - Obter unidade curricular através do seu id
+- `POST` `api/v1/unidade-curricular/new` - Criar uma nova unidade curricular
+- `DELETE` `api/v1/unidade-curricular/delete/{unidade_curricular_id}` - Remover unidade curricular através do seu id
+- `GET` `api/v1/unidade-curricular/{unidade_curricular_id}/professores/list` - Obter todos os professores que pertencem à unidade curricular
+- `GET` `api/v1/unidade-curricular/{unidade_curricular_id}/alunos/list` - Obter todos os alunos que pertencem à unidade curricular
+- `GET` `api/v1/unidade-curricular/{unidade_curricular_id}/avaliacoes/list` - Obter todas as avaliações que pertencem à unidade curricular
+- `POST` `api/v1/unidade-curricular/{unidadeCurricularId}/avaliacoes/add/{avaliacaoId}` - Adicionar uma avaliação à unidade curricular
+
+### Avaliação
+
+- `GET` `api/v1/avaliacao/list` - Obter todas as avaliações
+- `GET` `api/v1/avaliacao/{avaliacao_id}` - Obter avaliação através do seu id
+- `POST` `api/v1/avaliacao/new` - Criar uma nova avaliação
+- `DELETE` `api/v1/avaliacao/delete/{avaliacao_id}` - Remover avaliação através do seu id
+- `PUT` `api/v1/avaliacao/{avaliacao_id}` - Atualizar avaliação através do seu id
+
+### Ano Letivo
+
+- `GET` `api/v1/ano_letivo/list` - Obter todos os anos letivos
+- `GET` `api/v1/ano_letivo/{ano_letivo_id}` - Obter ano letivo através do seu id
+- `POST` `api/v1/ano_letivo/new` - Criar um novo ano letivo
+- `DELETE` `api/v1/ano_letivo/delete/{ano_letivo_id}` - Remover ano letivo através do seu id
+- `GET` `api/v1/ano_letivo/{ano_letivo_id}/unidades-curriculares/list` - Obter todas as unidades curriculares que pertencem ao ano letivo
+
+### Curso
+
+- `GET` `api/v1/curso/list` - Obter todos os cursos
+- `GET` `api/v1/curso/{curso_id}` - Obter curso através do seu id
+- `POST` `api/v1/curso/new` - Criar um novo curso
+- `DELETE` `api/v1/curso/delete/{curso_id}` - Remover curso através do seu id
+- `GET` `api/v1/curso/{curso_id}/unidades-curriculares/list` - Obter todas as unidades curriculares que pertencem ao curso
+- `GET` `api/v1/curso/{curso_id}/alunos/list` - Obter todos os alunos que pertencem ao curso
+
+### Login
+
+- `GET` `api/v1/login` - Login
+
 ## Alterações necessárias para o funcionamento da API (sem Docker)
 
 ### Step 1
