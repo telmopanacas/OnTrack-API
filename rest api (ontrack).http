@@ -125,6 +125,7 @@ Content-Type: application/json
 {
   "nome": "Frequência 1",
   "data": "16/06/2000",
+  "hora": "10:00",
   "tipoDeAvaliacao": "Frequência",
   "metodoDeEntrega": "Moodle",
   "unidadeCurricular": {

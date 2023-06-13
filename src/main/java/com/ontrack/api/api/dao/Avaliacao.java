@@ -18,6 +18,8 @@ public class Avaliacao {
     private String metodoDeEntrega;
     private String data;
 
+    private String hora;
+
     private String descricao;
 
     @ManyToOne
@@ -28,30 +30,33 @@ public class Avaliacao {
 
     }
 
-    public Avaliacao(long id, String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, String descricao, UnidadeCurricular unidadeCurricular) {
+    public Avaliacao(long id, String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, String hora, String descricao, UnidadeCurricular unidadeCurricular) {
         this.id = id;
         this.nome = nome;
         this.tipoDeAvaliacao = tipoDeAvaliacao;
         this.metodoDeEntrega = metodoDeEntrega;
         this.data = data;
+        this.hora = hora;
         this.descricao = descricao;
         this.unidadeCurricular = unidadeCurricular;
     }
 
-    public Avaliacao(String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, String descricao, UnidadeCurricular unidadeCurricular) {
+    public Avaliacao(String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, String hora, String descricao, UnidadeCurricular unidadeCurricular) {
         this.nome = nome;
         this.tipoDeAvaliacao = tipoDeAvaliacao;
         this.metodoDeEntrega = metodoDeEntrega;
         this.data = data;
+        this.hora = hora;
         this.descricao = descricao;
         this.unidadeCurricular = unidadeCurricular;
     }
 
-    public Avaliacao(String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data) {
+    public Avaliacao(String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, String hora) {
         this.nome = nome;
         this.tipoDeAvaliacao = tipoDeAvaliacao;
         this.metodoDeEntrega = metodoDeEntrega;
         this.data = data;
+        this.hora = hora;
     }
 
     public Avaliacao(String nome, String tipoDeAvaliacao, String metodoDeEntrega, String data, UnidadeCurricular unidadeCurricular) {
@@ -84,6 +89,14 @@ public class Avaliacao {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public UnidadeCurricular getUnidadeCurricular() {
@@ -126,6 +139,7 @@ public class Avaliacao {
                 ", tipoDeAvaliacao='" + tipoDeAvaliacao + '\'' +
                 ", metodoDeEntrega='" + metodoDeEntrega + '\'' +
                 ", data='" + data + '\'' +
+                ", hora='" + hora + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", unidadeCurricular=" + unidadeCurricular +
                 '}';
