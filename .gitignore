@@ -37,3 +37,6 @@ src/main/resources/application.properties
 
 ### reset_test_db.sql ###
 db_scripts/reset_test_db.sql
+
+### database_data
+db-data/

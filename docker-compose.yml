@@ -1,31 +1,27 @@
 version: "3.9"
 
 services:
-  db:
+
+  ontrack-api-db:
     image: mysql:8.0-oracle
+    container_name: ontrack-api-db
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
     environment:
-        MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: ontrack_db
-        MYSQL_USER: ontrack
-        MYSQL_PASSWORD: passwordontrack
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ontrack_db
     volumes:
-      - C:\OnTrack\database\:/var/lib/mysql
-
+      - ./db-data/ontrack:/var/lib/mysql
 
   ontrack-api:
     image: ontrackspringapi
+    container_name: ontrack-api
     build:
-        context: .
-        dockerfile: Dockerfile
-    restart: always
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
     environment:
-      DB_URL: jdbc:mysql://db:3306/ontrack_db?connectTimeout=0&socketTimeout=0&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-      DB_USERNAME: root
-      DB_PASSWORD: root
-
+      SPRING_DATASOURCE_URL: jdbc:mysql://ontrack-api-db:3306/ontrack_db?connectTimeout=0&socketTimeout=0&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
     ports:
-        - "8094:8080"
-
-    links:
-        - db
+      - "8094:8080"

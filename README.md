@@ -4,6 +4,10 @@
 
 ## Endpoints:
 
+### Miscellaneous
+
+- `GET` `api/v1/alive` - Verificar se a API está a funcionar 
+
 ### Aluno
 
 - `GET` `api/v1/aluno/list` - Obter todos os alunos
@@ -25,14 +29,14 @@
 
 ### Unidade Curricular
 
-- `GET` `api/v1/unidade-curricular/list` - Obter todas as unidades curriculares
-- `GET` `api/v1/unidade-curricular/{unidade_curricular_id}` - Obter unidade curricular através do seu id
-- `POST` `api/v1/unidade-curricular/new` - Criar uma nova unidade curricular
-- `DELETE` `api/v1/unidade-curricular/delete/{unidade_curricular_id}` - Remover unidade curricular através do seu id
-- `GET` `api/v1/unidade-curricular/{unidade_curricular_id}/professores/list` - Obter todos os professores que pertencem à unidade curricular
-- `GET` `api/v1/unidade-curricular/{unidade_curricular_id}/alunos/list` - Obter todos os alunos que pertencem à unidade curricular
-- `GET` `api/v1/unidade-curricular/{unidade_curricular_id}/avaliacoes/list` - Obter todas as avaliações que pertencem à unidade curricular
-- `POST` `api/v1/unidade-curricular/{unidadeCurricularId}/avaliacoes/add/{avaliacaoId}` - Adicionar uma avaliação à unidade curricular
+- `GET` `api/v1/unidade_curricular/list` - Obter todas as unidades curriculares
+- `GET` `api/v1/unidade_curricular/{unidade_curricular_id}` - Obter unidade curricular através do seu id
+- `POST` `api/v1/unidade_curricular/new` - Criar uma nova unidade curricular
+- `DELETE` `api/v1/unidade_curricular/delete/{unidade_curricular_id}` - Remover unidade curricular através do seu id
+- `GET` `api/v1/unidade_curricular/{unidade_curricular_id}/professores/list` - Obter todos os professores que pertencem à unidade curricular
+- `GET` `api/v1/unidade_curricular/{unidade_curricular_id}/alunos/list` - Obter todos os alunos que pertencem à unidade curricular
+- `GET` `api/v1/unidade_curricular/{unidade_curricular_id}/avaliacoes/list` - Obter todas as avaliações que pertencem à unidade curricular
+- `POST` `api/v1/unidade_curricular/{unidadeCurricularId}/avaliacoes/add/{avaliacaoId}` - Adicionar uma avaliação à unidade curricular
 
 ### Avaliação
 
@@ -61,7 +65,7 @@
 
 ### Login
 
-- `GET` `api/v1/login` - Login
+- `POST` `api/v1/login` - Login
 
 ## Alterações necessárias para o funcionamento da API (sem Docker)
 
@@ -89,30 +93,11 @@ Ter o mysql instalado e através de uma ferramenta como o [MySQL Workbench](http
 
 ### Step 1
 
-Ter o docker instalado na máquina.
+Ter o `docker` e o `docker-compose` instalado na máquina.
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### Step 2
-
-Criar as pastas `Ontrack/database` no caminho `C:\` de modo a que fique do seguinte modo: `C:\OnTrack\database` 
-
-### Step 3
-
-No IntelliJ através da opção do Maven fazer o seguinte:
-- Ir a `api`;
-
-
-- Ir a `Lifecycle`;
-
-
-- Executar o comando `clean`;
-
-
-- Executar o comando `install`.
-
-***Se não estiver a utilizar o IntelliJ como IDE, installe o Maven e no terminal execute os comandos equivalentes ao descrito acima.***
-- https://maven.apache.org/download.cgi
-
-### Step 4
 
 #### Na primeira execução: 
 
@@ -127,12 +112,7 @@ Na pasta raiz do projeto executar o seguinte comando:
 `docker-compose up` ou `docker-compose up -d` para correr em background.
 
 # To Do:
-
-- [x] ~~Fazer o Dockerfile~~
-
-
-- [x] ~~Fazer o docker-compose.yml~~
-
+- [ ] Alterar a base de dados para uma H2 Database
 
 
 # Change Log
@@ -147,6 +127,37 @@ Instruições para o formato do Change Log
 `Removed` for now removed features.
 
 `Fixed`  for any bug fixes.
+
+## 2023-06-17
+
+### Added
+- Criação da classe `CredenciaisUser` a ser usada no endpoint `api/v1/login` para fazer o login na aplicação.
+
+
+- Criação do ficheiro `MisceallenousController` que contém o endpoint `api/v1/alive` para verificar se a API está a correr.
+
+
+### Changed
+- Alteração do endpoint `api/v1/login` para `POST` e  para receber um objeto do tipo `CredenciaisUser` em vez de um `email`.
+
+
+- Alteração do ficheiro `LoginService` para receber um objeto do tipo `CredenciaisUser` em vez de um `email`.
+
+
+- Alteração do ficheiro `Dockerfile` para automatizar o processo de buildar o ficheiro `.jar` da API.
+
+
+- Alteração do ficheiro `docker-compose.yml` para remover definições que não são necessárias.
+
+
+### Deprecated
+
+
+### Removed
+
+
+### Fixed
+
 
 ## 2023-06-01
 
