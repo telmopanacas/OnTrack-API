@@ -1,4 +1,4 @@
-#Criar um ano lectivo 2019/2020
+#Criar um ano lectivo 2022/2023
 ###
 POST http://localhost:8080/api/v1/ano_letivo/new
 Content-Type: application/json
@@ -144,18 +144,26 @@ POST http://localhost:8080/api/v1/unidade_curricular/1/avaliacoes/add/1
 GET http://localhost:8080/api/v1/unidade_curricular/1/avaliacoes/list
 
 
-#Obter o ID do professor com email p1234@ulusofona
+#Obter o ID do professor com email p1234@ulusofona.pt
 ###
-GET http://localhost:8080/api/v1/login?email=p1234@ulusofona.pt
+POST http://localhost:8080/api/v1/login
+Content-Type: application/json
 
+{
+  "email": "p1234@ulusofona.pt"
+}
 
-#Obter o ID do aluno com email a22000000@alunos.ulht.pt
 ###
-GET http://localhost:8080/api/v1/login?email=a22000000@alunos.ulht.pt
+#Obter o ID do aluno com email a123@alunos.ulht.pt
+POST http://localhost:8080/api/v1/login
+Content-Type: application/json
 
+{
+  "email": "a123@alunos.ulht.pt"
+}
 
+###
 #Criar unidade curricular Matemática 3
-###
 POST http://localhost:8080/api/v1/unidade_curricular/new
 Content-Type: application/json
 
@@ -173,6 +181,25 @@ Content-Type: application/json
   }
 }
 
+###
+#Criar unidade curricular Computação móvel
+POST http://localhost:8080/api/v1/unidade_curricular/new
+Content-Type: application/json
+
+{
+  "nome": "Computação móvel",
+  "codigo": "CM",
+  "descricao": "Computação móvel",
+  "ano": 3,
+  "semestre": 2,
+  "curso": {
+    "id": 1
+  },
+  "anoLetivo": {
+    "id": 1
+  }
+}
+
 
 ###
 #Mudar a unidade curricular da avaliacao com id 1 (Frequência 1) para Matemática 3
@@ -182,3 +209,6 @@ PUT http://localhost:8080/api/v1/avaliacao/1?unidadeCurricularId=2
 ###
 #Mudar o nome da avaliacao com id 1 (Frequência 1) para Avaliação 1
 PUT http://localhost:8080/api/v1/avaliacao/1?nome=Avaliação 1
+
+###
+GET http://localhost:8080/api/v1/curso/1/unidades-curriculares/list
