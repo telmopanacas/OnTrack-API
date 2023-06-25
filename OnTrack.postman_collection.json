@@ -1,0 +1,766 @@
+{
+	"info": {
+		"_postman_id": "cc28dcd6-c1e6-4688-a175-1f844b33b29e",
+		"name": "OnTrack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27387390",
+		"_collection_link": "https://www.postman.com/dark-satellite-5714/workspace/9c8782e0-b365-4ae1-b80a-c7a4a7ab107e/collection/27387390-cc28dcd6-c1e6-4688-a175-1f844b33b29e?action=share&creator=27387390&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Aluno",
+			"item": [
+				{
+					"name": "Criar Aluno Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Telmo\",\r\n  \"email\": \"a12345@alunos.ulht.pt\",\r\n  \"curso\": {\r\n    \"id\": 3\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/aluno/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"aluno",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos os Alunos Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/aluno/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"aluno",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar aluno por id Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/aluno/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"aluno",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Unidades Curriculares do aluno por id Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/aluno/:idAluno/unidades-curriculares/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"aluno",
+								":idAluno",
+								"unidades-curriculares",
+								"list"
+							],
+							"variable": [
+								{
+									"key": "idAluno",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar Unidade Curricular ao aluno por id Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/aluno/:idAluno/unidades-curriculares/add/:idUC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"aluno",
+								":idAluno",
+								"unidades-curriculares",
+								"add",
+								":idUC"
+							],
+							"variable": [
+								{
+									"key": "idAluno",
+									"value": "1"
+								},
+								{
+									"key": "idUC",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter id do aluno pelo email Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"a123@alunos.ulht.pt\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Avaliação",
+			"item": [
+				{
+					"name": "Listar Avaliações Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/avaliacao/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"avaliacao",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar avaliação Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"antes\",\r\n  \"data\": \"26/05/2023\",\r\n  \"hora\": \"23:59\",\r\n  \"tipoDeAvaliacao\": \"Projeto\",\r\n  \"metodoDeEntrega\": \"Moodle\",\r\n  \"unidadeCurricular\": {\r\n    \"id\": 30\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/avaliacao/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"avaliacao",
+								"new"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AnoLetivo",
+			"item": [
+				{
+					"name": "Criar AnoLetivo Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"ano\": \"2021/2022\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ano_letivo/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ano_letivo",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar anos letivos Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/ano_letivo/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"ano_letivo",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Curso",
+			"item": [
+				{
+					"name": "Criar LEI Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Licenciatura em Engenharia Informática\",\r\n  \"codigo\": \"LEI\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/curso/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"curso",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar LIG Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Licenciatura em Informática de Gestão\",\r\n  \"codigo\": \"LIG\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/curso/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"curso",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar LIRT Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Licenciatura em Engenharia Informática, Redes e Telecomunicações\",\r\n  \"codigo\": \"LIRT\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/curso/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"curso",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar todos os cursos Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/curso/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"curso",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar UC do Curso Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/curso/:cursoID/unidades-curriculares/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"curso",
+								":cursoID",
+								"unidades-curriculares",
+								"list"
+							],
+							"variable": [
+								{
+									"key": "cursoID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Professor",
+			"item": [
+				{
+					"name": "Listar todos os professores Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/professor/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"professor",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Professor Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Miguel Tavares\",\r\n  \"email\": \"p1@ulusofona.pt\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/professor/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"professor",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar professor por id Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/professor/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"professor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Unidades Curricular do professor por id Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/professor/:id/unidades-curriculares/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"professor",
+								":id",
+								"unidades-curriculares",
+								"list"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Adicionar Unidade Curricular ao professor Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/professor/:idProf/unidades-curriculares/add/:idUC",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"professor",
+								":idProf",
+								"unidades-curriculares",
+								"add",
+								":idUC"
+							],
+							"variable": [
+								{
+									"key": "idProf",
+									"value": "2"
+								},
+								{
+									"key": "idUC",
+									"value": "30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obter id professor com email Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/login?email=p1234@ulusofona.pt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "p1234@ulusofona.pt"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UnidadeCurricular",
+			"item": [
+				{
+					"name": "Criar Unidade Curricular Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Sistemas de Informação na Nuvem\",\r\n  \"codigo\": \"SIN\",\r\n  \"descricao\": \"Sistemas de Informação na Nuvem\",\r\n  \"ano\": 3,\r\n  \"semestre\": 2,\r\n  \"curso\": {\r\n    \"id\": 1\r\n  },\r\n  \"anoLetivo\": {\r\n    \"id\": 1\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/unidade_curricular/new",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"unidade_curricular",
+								"new"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar toodas as unidadades curriculares Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/unidade_curricular/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"unidade_curricular",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar alunos da Unidade Curricular por id Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/unidade_curricular/:id/alunos/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"unidade_curricular",
+								":id",
+								"alunos",
+								"list"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar avaliações da unidade curricular Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/unidade_curricular/:idUC/avaliacoes/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"unidade_curricular",
+								":idUC",
+								"avaliacoes",
+								"list"
+							],
+							"variable": [
+								{
+									"key": "idUC",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

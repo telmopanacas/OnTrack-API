@@ -67,6 +67,10 @@
 
 - `POST` `api/v1/login` - Login
 
+
+### Endpoints Postman
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-satellite-5714/workspace/ontrack/collection/27387390-cc28dcd6-c1e6-4688-a175-1f844b33b29e?action=share&creator=27387390)
+
 ## Alterações necessárias para o funcionamento da API (sem Docker)
 
 ### Step 1
@@ -129,6 +133,7 @@ Instruições para o formato do Change Log
 `Fixed`  for any bug fixes.
 
 
+
 ## 2023-06-25
 
 ### Added
@@ -138,8 +143,12 @@ Instruições para o formato do Change Log
 - Criação do ficheiro `SetupConfiguration` que vai criar os dados iniciais na base de dados.
 
 
+- Adição do ficheiro `OnTrack.postman_collection.json` à raiz do projeto.
+
+
 
 ### Changed
+- Alteração no ficheiro `README.md`, adição de um botão para redirecionamente para o postman.
 
 
 ### Deprecated
