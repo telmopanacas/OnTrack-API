@@ -7,10 +7,14 @@ services:
     container_name: ontrack-api-db
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: passwordontrack
       MYSQL_DATABASE: ontrack_db
     volumes:
       - ./db-data/ontrack:/var/lib/mysql
+      # Para executar um ficheiro .sql na primeira vez que a base de dados é executada, fazer o seguite:
+      # - ./caminho/para/o/ficheiro/init-script.sql:/docker-entrypoint-initdb.d/init-script.sql
+      - ./db_scripts/db_creation.sql:/docker-entrypoint-initdb.d/db_creation.sql
+
 
   ontrack-api:
     image: ontrackspringapi
@@ -22,6 +26,6 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://ontrack-api-db:3306/ontrack_db?connectTimeout=0&socketTimeout=0&autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
       SPRING_DATASOURCE_USERNAME: root
-      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_DATASOURCE_PASSWORD: passwordontrack
     ports:
       - "8094:8080"

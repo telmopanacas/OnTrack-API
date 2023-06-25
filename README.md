@@ -128,6 +128,29 @@ Instruições para o formato do Change Log
 
 `Fixed`  for any bug fixes.
 
+
+## 2023-06-25
+
+### Added
+- Adição do campo `ects` à classe `UnidadeCurricular`.
+
+
+- Criação do ficheiro `SetupConfiguration` que vai criar os dados iniciais na base de dados.
+
+
+
+### Changed
+
+
+### Deprecated
+
+
+### Removed
+
+
+### Fixed
+
+
 ## 2023-06-17
 
 ### Added

@@ -19,9 +19,8 @@ public class UnidadeCurricular {
     private String nome;
     private String codigo;
     private String descricao;
-
+    private int ects;
     private int ano;
-
     private int semestre;
 
     @ManyToOne
@@ -53,11 +52,12 @@ public class UnidadeCurricular {
     }
 
 
-    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ano, int semestre, Curso curso, AnoLetivo anoLetivo, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes) {
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ects, int ano, int semestre, Curso curso, AnoLetivo anoLetivo, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
+        this.ects = ects;
         this.ano = ano;
         this.semestre = semestre;
         this.curso = curso;
@@ -68,10 +68,11 @@ public class UnidadeCurricular {
     }
 
 
-    public UnidadeCurricular(String nome, String codigo, String descricao, int ano, int semestre, Curso curso, AnoLetivo anoLetivo) {
+    public UnidadeCurricular(String nome, String codigo, String descricao, int ects, int ano, int semestre, Curso curso, AnoLetivo anoLetivo) {
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
+        this.ects = ects;
         this.ano = ano;
         this.semestre = semestre;
         this.curso = curso;
@@ -108,6 +109,14 @@ public class UnidadeCurricular {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public int getEcts() {
+        return ects;
+    }
+
+    public void setEcts(int ects) {
+        this.ects = ects;
     }
 
     public int getAno() {
@@ -173,6 +182,7 @@ public class UnidadeCurricular {
                 ", nome='" + nome + '\'' +
                 ", codigo='" + codigo + '\'' +
                 ", descricao='" + descricao + '\'' +
+                ", ects=" + ects +
                 ", ano=" + ano +
                 ", semestre=" + semestre +
                 ", curso=" + curso +

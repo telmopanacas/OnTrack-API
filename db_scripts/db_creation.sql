@@ -1,15 +1,15 @@
-create database ontrack_db;
+create database if not exists ontrack_db;
 
 use ontrack_db;
 
-create table ano_letivo
+create table if not exists ano_letivo
 (
     id  INT not null auto_increment,
     ano VARCHAR(10) not null,
     primary key (id)
 );
 
-create table professor
+create table if not exists professor
 (
     id int not null auto_increment,
     nome  varchar(40) not null,
@@ -18,7 +18,7 @@ create table professor
 );
 
 
-create table aluno
+create table  if not exists aluno
 (
     id int not null auto_increment,
     nome  varchar(40) not null,
@@ -26,7 +26,7 @@ create table aluno
     primary key (id)
 );
 
-create table avaliacao
+create table  if not exists avaliacao
 (
     id int not null auto_increment,
     nome varchar(40) not null,
@@ -34,7 +34,7 @@ create table avaliacao
     primary key (id)
 );
 
-CREATE TABLE unidade_curricular
+CREATE TABLE  if not exists unidade_curricular
 (
     id INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE unidade_curricular
     PRIMARY KEY (id)
 );
 
-create table curso
+create table  if not exists curso
 (
     id int not null auto_increment,
     nome varchar(70) not null,
