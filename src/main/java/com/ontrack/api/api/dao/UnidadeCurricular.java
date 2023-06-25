@@ -22,6 +22,7 @@ public class UnidadeCurricular {
     private int ects;
     private int ano;
     private int semestre;
+    private String cor;
 
     @ManyToOne
     @JoinColumn(name = "curso_id")
@@ -52,7 +53,7 @@ public class UnidadeCurricular {
     }
 
 
-    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ects, int ano, int semestre, Curso curso, AnoLetivo anoLetivo, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes) {
+    public UnidadeCurricular(long id, String nome, String codigo, String descricao, int ects, int ano, int semestre, Curso curso, AnoLetivo anoLetivo, List<Professor> professores, List<Aluno> alunos, List<Avaliacao> avaliacoes, String cor) {
         this.id = id;
         this.nome = nome;
         this.codigo = codigo;
@@ -65,10 +66,11 @@ public class UnidadeCurricular {
         this.professores = professores;
         this.alunos = alunos;
         this.avaliacoes = avaliacoes;
+        this.cor = cor;
     }
 
 
-    public UnidadeCurricular(String nome, String codigo, String descricao, int ects, int ano, int semestre, Curso curso, AnoLetivo anoLetivo) {
+    public UnidadeCurricular(String nome, String codigo, String descricao, int ects, int ano, int semestre, Curso curso, AnoLetivo anoLetivo, String cor) {
         this.nome = nome;
         this.codigo = codigo;
         this.descricao = descricao;
@@ -77,6 +79,7 @@ public class UnidadeCurricular {
         this.semestre = semestre;
         this.curso = curso;
         this.anoLetivo = anoLetivo;
+        this.cor = cor;
     }
 
     public long getId() {
@@ -135,6 +138,14 @@ public class UnidadeCurricular {
         this.semestre = semestre;
     }
 
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
     public AnoLetivo getAnoLetivo() {
         return anoLetivo;
     }
@@ -185,6 +196,7 @@ public class UnidadeCurricular {
                 ", ects=" + ects +
                 ", ano=" + ano +
                 ", semestre=" + semestre +
+                ", cor='" + cor + '\'' +
                 ", curso=" + curso +
                 ", anoLetivo=" + anoLetivo +
                 ", professores=" + professores +
