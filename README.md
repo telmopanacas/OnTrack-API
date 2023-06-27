@@ -67,6 +67,9 @@
 
 - `POST` `api/v1/login` - Login
 
+### Endpoints Postman
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.postman.com/dark-satellite-5714/workspace/ontrack/collection/27387390-cc28dcd6-c1e6-4688-a175-1f844b33b29e?action=share&creator=27387390)
+
 ## Alterações necessárias para o funcionamento da API (sem Docker)
 
 ### Step 1
