@@ -129,24 +129,6 @@ Instruições para o formato do Change Log
 `Fixed`  for any bug fixes.
 
 
-## 2023-06-27
-
-### Added
-
-
-### Changed
-
-
-### Deprecated
-
-
-### Removed
-
-
-### Fixed
-- Resolvido o problema de `XMLHttpRequest` para projetos Flutter Web, através da adição de um `WebMvcConfigurer corsConfigurer`
-no ficheiro `ApiApplication.java`.
-
 ## 2023-06-25
 
 ### Added
