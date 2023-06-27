@@ -132,6 +132,26 @@ Instruições para o formato do Change Log
 `Fixed`  for any bug fixes.
 
 
+
+## 2023-06-27
+
+### Added
+
+
+### Changed
+
+
+### Deprecated
+
+
+### Removed
+
+
+### Fixed
+- Resolvido o problema de `XMLHttpRequest` para projetos Flutter Web, através da adição de um `WebMvcConfigurer corsConfigurer`
+  no ficheiro `ApiApplication.java`.
+
+
 ## 2023-06-25
 
 ### Added
@@ -141,9 +161,11 @@ Instruições para o formato do Change Log
 - Criação do ficheiro `SetupConfiguration` que vai criar os dados iniciais na base de dados.
 
 
+- Adição do ficheiro `OnTrack.postman_collection.json` à raiz do projeto.
+
 
 ### Changed
-
+- Alteração no ficheiro `README.md`, adição de um botão para redirecionamente para o postman.
 
 ### Deprecated
 
